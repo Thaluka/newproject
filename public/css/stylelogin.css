@@ -1,0 +1,45 @@
+body{
+    background-color:#f2f2f2;
+}
+.logform{
+     min-height: 250px;
+     background-color:#ffffff;
+     border: 2px solid #c2c2d6;
+}
+label{
+    font-weight:620;
+}
+input[type="text"]{
+    border: solid #f2f2f2 2px;
+    background-color: rgb(250, 255, 189) !important;
+}
+input[type="password"]{
+        border: solid #f2f2f2 2px;
+    background-color: rgb(250, 255, 189) !important;
+}
+input[type="email"]{
+
+    border: solid #f2f2f2 2px;
+    background-color: rgb(250, 255, 189) !important;
+}
+
+.card-header{
+		  background-color:#f2f2f2;
+		  color:#000000;
+		  height:50px;
+		  font-size:18px;
+          font-weight:bold;
+          text-align:center;
+          padding-top: 3px;
+	  }
+nav{
+ min-height:50px;
+ background-color:#031768;
+}
+p{
+ font-size:14px;
+ font-weight:620;
+}
+.help-block{
+    color: #ff0000;
+}

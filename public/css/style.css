@@ -1,0 +1,150 @@
+ .mango_mid{
+          min-height: 50px;
+          background-color:#031768;
+        }
+
+        .mango_bottom{
+          min-height: 30px;
+          background-color:#CCCCCC ;
+          border-bottom: solid 2px #CCCCCC ;
+        }
+        .mango_texthead{
+          font-weight: bold;
+          font-family: Roboto;
+          color: #FFFFFF;
+        }
+
+        .mangonav_tab{
+          font-size: 20px;
+          font-weight: bold;
+          font-style: normal;
+          font-family:Roboto Medium;
+          color: #FFFFFF;
+        }
+        /*.imgshow{
+          border: solid 2px #000000;
+          border-bottom: solid 2px #000000;
+        }*/
+         .mango_mid{
+      min-height: 50px;
+      background-color:#031768;
+    }
+
+    .mango_bottom{
+      min-height: 30px;
+      background-color:#CCCCCC ;
+      border-bottom: solid 2px #CCCCCC ;
+    }
+    .mango_texthead{
+      font-weight: bold;
+      font-family: Roboto;
+      color: #FFFFFF;
+    }
+
+    .mangonav_tab{
+      font-size: 20px;
+      font-weight: bold;
+      font-style: normal;
+      font-family:Roboto Medium;
+      color: #FFFFFF;
+    }
+    /*.imgshow{
+      border: solid 2px #000000;
+      border-bottom: solid 2px #000000;
+    }*/
+    .mango_form{
+        background-color:#ffffff;
+        border: 2px solid #f2f2f2;
+    box-shadow: 1px 1px 1px 1px;
+
+      }
+      label{
+        font-size: 18px;
+        font-weight: bold;
+        font-style: normal;
+        margin-top: 0PX;
+        font-family:sans-serif;
+        color: #000;
+      }
+
+
+    .mango_logform{
+        min-height: 400px;
+        background-color:#ffffff;
+        border: 2px solid #f2f2f2;
+    box-shadow: 1px 1px 1px 1px;
+
+      }
+      label{
+        font-size: 18px;
+        font-weight: bold;
+        font-style: normal;
+        margin-top: 0PX;
+        font-family:sans-serif;
+        color: #000;
+      }
+      .form-group{
+        margin-top:30px;
+      }
+      input[type="password"]{
+     border: solid #bfbfbf 2px;
+      }
+      .form-group{
+        margin-top:30px;
+      }
+      input[type="text"]{
+     border: solid #bfbfbf 2px;
+      }
+      input[type="email"]{
+
+        border: solid #bfbfbf 2px;
+      }
+    .message{
+        border: solid #bfbfbf 2px;
+    }
+    textarea{
+      border: solid #bfbfbf 2px;
+    }
+      h3{
+        text-justify:inter-word;
+        margin-top:60px;
+        margin-bottom:60px;
+      }
+    .link_text{
+      font-size:12px;
+      font-weight:bold;
+    }
+
+    li a{
+      color:#ffffff;
+    }
+
+
+      input[type="submit"]{
+    font-size:18px;
+    font-weight:bold;
+        float:right;
+        margin-top:20px;
+      }
+
+    .card-header{
+      background-color:#00F;
+      color:#FFFFFF;
+      height:50px;
+      font-size:16px;
+      font-weight:bold;
+    }
+    .btn{
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    /* .active{
+       background-color: #33A8FF;
+
+    }
+
+*/
+
+/*      <link href="{{ asset('css/style.css') }}" media="all" rel="stylesheet" type="text/css" />
+*/
