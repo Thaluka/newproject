@@ -37,9 +37,8 @@ Route::resource('registeroperator','AdminregisterController');
 Route::resource('complains','ComplainsController');
 Route::resource('addproducts','AddproductController');
 Route::resource('products','ProductController');
-Route::resource('technicians','TechnicianregisterController');
-//Route::get('registeroperator/create','AdminregisterController@create');
-//Route::post('registeroperator','AdminregisterController@store');
+
+Route::resource('technicians','TechnicianController');
 
 
 Route::group(['middleware' => 'disablepreventback'],function(){

@@ -12,7 +12,7 @@ use App\Technician;
 
 use Illuminate\Support\Facades\Hash;
 
-class TechnicianregisterController extends Controller
+class TechnicianController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,7 +21,12 @@ class TechnicianregisterController extends Controller
      */
     public function index()
     {
-        //
+        return $technicians = DB::table('technicians')
+        ->join('users', 'technicians.email', '=', 'users.email')
+        ->select('technicians.*', 'users.*')
+        ->orderBy('updated_at','desc')
+        ->paginate(4);
+        return view('technician.index')->with('types',$types);
     }
 
     /**
@@ -33,7 +38,6 @@ class TechnicianregisterController extends Controller
     {
         $types= Type::orderBy('created_at','type_id')->get();
         return view('technician.create')->with('types',$types);
-        
     }
 
     /**
@@ -44,7 +48,7 @@ class TechnicianregisterController extends Controller
      */
     public function store(Request $request)
     {
-            $this->validate($request,[
+        $this->validate($request,[
             'fname' => 'required|string|max:255',
             'lname' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
@@ -87,7 +91,7 @@ class TechnicianregisterController extends Controller
      */
     public function show($id)
     {
-        
+        //
     }
 
     /**
