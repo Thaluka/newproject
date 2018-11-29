@@ -9,7 +9,7 @@
   <!--<link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/master.css">-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+   
   <link rel="icon" type="image/png" href="images/logo.png" />
     
   <link href="{{ asset('css/style.css') }}" media="all" rel="stylesheet" type="text/css" />
@@ -35,14 +35,14 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <a class="navbar-brand" href="{{url('home')}}"></a>
+    <a class="navbar-brand" href="{{url('homee')}}"></a>
 
     <ul class="navbar-nav mt-0">
       <li class="mangonav_tab nav-item active ml-0 col-md-3  col-auto mr-auto">
-        <a class="nav-link text-left" href="{{url('home')}}">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link text-left" href="{{url('homee')}}">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="mangonav_tab nav-item active ml-0 col-md-3  col-auto mr-auto">
-        <a class="nav-link text-left" href="{{url('products')}}">Products</a>
+        <a class="nav-link text-left" href="{{url('producthome')}}">Products</a>
       </li>
       <li class="mangonav_tab nav-item active ml-0 col-md-3 col-auto mr-auto">
         <a class="nav-link text-left" href="{{url('services')}}">Services</a>
@@ -74,4 +74,6 @@
         Address:- No.252, Golumadama Junction, Rathmalana<br>
         Email:- sales@asparai.com<br>
       </p>
+      @yield('script')
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </html>

@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/customercomplain';
 
     /**
      * Create a new controller instance.
@@ -78,6 +78,7 @@ class RegisterController extends Controller
             'mobile' => $data['mobile'],
             'workplace' => $data['company'],
             'address' => $data['address'],
+            
         ]);
         
     }

@@ -19,4 +19,8 @@ class Type extends Model
     public function technicians(){
         return $this->hasMany('App\Technician');
     }
+
+    public function complains(){
+        return $this->hasMany('App\Complain');
+    }
 }

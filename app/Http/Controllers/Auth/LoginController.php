@@ -34,10 +34,17 @@ class LoginController extends Controller
         return '/admin';
     }
     if (Auth::user()->role == 'operator'){
-        return '/product';
+        return '/operator';
+    }
+    if (Auth::user()->role == 'technician'){
+        
+        return '/techdashboard';
+    }
+    if (Auth::user()->role == 'Supervisor'){
+        return '/home';
     }
     else{
-       return '/home';
+       return '/customercomplain';
     }
 }
   

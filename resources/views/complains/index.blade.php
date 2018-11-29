@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.customer')
 
 @section('content')
 <div class="container">
@@ -22,9 +22,13 @@
                          @if(count($complains)>0)
                              @foreach($complains as $complain)
                                      <div class="card-header mt-1 mt-2">
-                                         <a href="/complains/{{$complain->id}}" ><h1>{{$complain->title}}</h1></a>
-                                         <br>
-                                         <small>wrritten on {{$complain->created_at}}</small>
+                                         <a href="/complains/{{$complain->id}}/edit" ><h1>{{$complain->type}}-{{$complain->product_name }}</h1></a>
+                                             <diV class="container message">
+                                                 {{$complain->message}}
+                                             </div>
+                                         <h6 class="ml-1" >{{$complain->address }}</h6>
+                                         <h6 class="ml-1" >{{$complain->region}}</h6>
+                                             
                                      </div>
                               @endforeach
                          @endif

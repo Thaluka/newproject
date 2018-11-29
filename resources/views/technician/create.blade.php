@@ -10,7 +10,7 @@
               <h5  class="col-sm-6 offset-sm-3 mt-2" >Technicians Register</h5>
        </div>
              <div  class="card-body ">
-             <form method="POST" action="{{  action('TechnicianregisterController@store') }}"  class="form-horizontal mt-4">
+             <form method="POST" action="{{  action('TechnicianController@store') }}"  class="form-horizontal mt-4">
                   {{csrf_field()}}
                    <div class="form-group row  {{ $errors->has('fname') ? 'has-error' : '' }} ">
                         <label for="firstname" class="col-form-lable-sm col-sm-3">First Name</label>

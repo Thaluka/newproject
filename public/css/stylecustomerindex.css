@@ -1,0 +1,23 @@
+.card-header{
+	background-color:#031768;
+	color:#ffffff;
+	height:40px;
+	font-size:14px;
+    font-weight:bold;
+    text-align:center;
+}
+.card{
+	border: 2px solid #031768;
+}
+.complainview{
+    min-height: 150px;
+    color:#ffffff;
+
+}
+.scheme{
+	font-weight:bold;
+	text-align:center;
+	min-height:5px;
+	min-width: 25%;
+
+}
