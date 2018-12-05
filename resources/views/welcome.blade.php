@@ -5,14 +5,14 @@
 <div class="imgshow col-sm-12 mt-0" align="center">
 
             <!--<img class="slidimg" style="width:100%;  height:400px"src="images/f.jpg"  alt="Responsive image" class="d-inline-block align-left"/>-->
-  <img class="slidimg" style="width:100%;  height:550px"src="{{ asset('images/index3.png')}}"  alt="Responsive image" class="d-inline-block align-left"/>
-  <img class="slidimg" style="width:100%;  height:550px"src="{{ asset('images/index5.jpg')}}"  alt="Responsive image" class="d-inline-block align-left"/>
-  <img class="slidimg" style="width:100%;  height:550px"src="{{ asset('images/14.jpg')}}"  alt="Responsive image" class="d-inline-block align-left"/>
-  <img class="slidimg" style="width:100%;  height:550px"src="{{ asset('images/15.jpg')}}" alt="Responsive image" class="d-inline-block align-left"/>
-  <img class="slidimg" style="width:100%;  height:550px"src="{{ asset('images/16.jpg')}}"  alt="Responsive image" class="d-inline-block align-left"/>
-  <img class="slidimg" style="width:100%;  height:550px"src="{{ asset('images/c.jpg')}}"  alt="Responsive image" class="d-inline-block align-left"/>
-  <img class="slidimg" style="width:100%;  height:550px"src="{{ asset('images/19.jpg')}}"  alt="Responsive image" class="d-inline-block align-left"/>
-  <img class="slidimg" style="width:100%;  height:550px"src="{{ asset('images/product1.jpg')}}"  alt="Responsive image" class="d-inline-block align-left"/>
+  <img class="slidimg" style="width:100%;  height:550px" src="{{ asset('images/index3.png')}}"  alt="Responsive image" class="d-inline-block align-left"/>
+  <img class="slidimg" style="width:100%;  height:550px" src="{{ asset('images/index5.jpg')}}"  alt="Responsive image" class="d-inline-block align-left"/>
+  <img class="slidimg" style="width:100%;  height:550px" src="{{ asset('images/14.jpg')}}"  alt="Responsive image" class="d-inline-block align-left"/>
+  <img class="slidimg" style="width:100%;  height:550px" src="{{ asset('images/15.jpg')}}" alt="Responsive image" class="d-inline-block align-left"/>
+  <img class="slidimg" style="width:100%;  height:550px" src="{{ asset('images/16.jpg')}}"  alt="Responsive image" class="d-inline-block align-left"/>
+  <img class="slidimg" style="width:100%;  height:550px" src="{{ asset('images/c.jpg')}}"  alt="Responsive image" class="d-inline-block align-left"/>
+  <img class="slidimg" style="width:100%;  height:550px" src="{{ asset('images/19.jpg')}}"  alt="Responsive image" class="d-inline-block align-left"/>
+  <img class="slidimg" style="width:100%;  height:550px" src="{{ asset('images/product1.jpg')}}"  alt="Responsive image" class="d-inline-block align-left"/>
 
 </div>
 
