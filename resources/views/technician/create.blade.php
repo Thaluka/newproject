@@ -1,11 +1,10 @@
-@extends('layouts.app')
-
+@extends('layouts.operator')
 @section('content')
 <div class="container">
 
 <br/>
     <div class="row justify-content-center">
-    <div class="container logform col-lg-8 mt-3">
+    <div class="container logform col-lg-8 mt-3 mr-3">
         <div class="card-header row">
               <h5  class="col-sm-6 offset-sm-3 mt-2" >Technicians Register</h5>
        </div>
@@ -15,12 +14,12 @@
                    <div class="form-group row  {{ $errors->has('fname') ? 'has-error' : '' }} ">
                         <label for="firstname" class="col-form-lable-sm col-sm-3">First Name</label>
                         <div class="col-sm-8">
-                        	  <input type="text" class="form-control"  name="fname" value="{{old('fname')}}" placeholder="Enter your first name" autofocus>
+                        	  <input type="text" class="form-control"  name="fname" value="{{old('fname')}}" placeholder="Enter first name" autofocus>
                         	  @if ($errors->has('fname'))
                                     <span class="help-block" >
                                         <strong>{{ $errors->first('fname') }}</strong>
                                     </span>
-                            @endif
+                              @endif
                         </div>
                        
                         
@@ -28,7 +27,7 @@
                    <div class="form-group row  {{ $errors->has('lname') ? 'has-error' : '' }} ">
                         <label for="lastname" class="col-form-lable-sm col-sm-3">Last Name</label>
                         <div  class="col-sm-8" >
-                        	<input type="text" class="form-control" name="lname" value="{{old('lname')}}" placeholder="Enter your last name"  autofocus>
+                        	<input type="text" class="form-control" name="lname" value="{{old('lname')}}" placeholder="Enter last name"  autofocus>
                         	@if ($errors->has('lname'))
                                     <span class="help-block" >
                                         <strong>{{ $errors->first('lname') }}</strong>
@@ -40,7 +39,7 @@
                    <div class="form-group row  {{ $errors->has('email') ? 'has-error' : '' }} ">
                         <label for="email" class="col-form-lable-sm  col-sm-3 " >E-mail</label>
                         <div  class="col-sm-8" >
-                        	<input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}"  placeholder="Enter your e-mail address" autofocus>
+                        	<input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}"  placeholder="Enter e-mail address" autofocus>
                         	@if ($errors->has('email'))
                                     <span class="help-block" >
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -54,7 +53,7 @@
                    <div class="form-group row  {{ $errors->has('nic') ? 'has-error' : '' }} ">
                         <label for="nic" class="col-form-lable-sm  col-sm-3 ">NIC</label>
                         <div  class="col-sm-8" >
-                        	<input type="text" class="form-control" id="nic" name="nic" value="{{old('nic')}}" placeholder="Enter your NIC number" autofocus >
+                        	<input type="text" class="form-control" id="nic" name="nic" value="{{old('nic')}}" placeholder="Enter NIC number" autofocus >
                         	@if ($errors->has('nic'))
                                     <span class="help-block" >
                                         <strong>{{ $errors->first('nic') }}</strong>
@@ -67,7 +66,7 @@
                    <div class="form-group  row  {{ $errors->has('mobile') ? 'has-error' : '' }} ">
                         <label for="contactnumber" class="col-form-lable-sm  col-sm-3 ">Contact Number</label>
                         <div  class="col-sm-8" >
-                        	<input type="text" class="form-control" id="contactnumber"  name="mobile" value="{{old('mobile')}}" placeholder="Enter your Contact Number" autofocus >
+                        	<input type="text" class="form-control" id="contactnumber"  name="mobile" value="{{old('mobile')}}" placeholder="Enter Contact Number" autofocus >
                         	@if ($errors->has('mobile'))
                                     <span class="help-block" >
                                         <strong>{{ $errors->first('mobile') }}</strong>
@@ -103,7 +102,7 @@
                    <div class="form-group row  {{ $errors->has('type') ? 'has-error' : '' }} ">
                         <label for="productcatname" class="col-form-lable-sm col-sm-3">Product Type</label>
                         <div class="col-sm-8">
-                        <select id="type" class="form-control" name="type" autofocus>
+                        <select id="type" class="form-control select" name="type" autofocus>
                                  <option value="">Choose Product Type</option>
                                  @if(count($types)>0)
                                  @foreach($types as $type)
@@ -137,7 +136,8 @@
                   
                    <div class="form-group row mt-0 mb-0">
                              <div  class="col-sm-6 offset-sm-3">
-                        	       <button type="submit" class="col-sm-6  btn-primary btn-sm btn-block ">Register</button>
+                        	       <button type="submit" class="col-sm-6  btn-primary btn-sm btn-block ">Register
+                                   </button>
                              </div>
                         </div>
              </form>

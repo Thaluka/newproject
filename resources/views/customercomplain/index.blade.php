@@ -14,7 +14,7 @@ View Request
     
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Complains</div>
+                <div class="card-header">Complaints</div>
 
                 <div class="card-body">
                  @if(Session::has('flash_message_success'))

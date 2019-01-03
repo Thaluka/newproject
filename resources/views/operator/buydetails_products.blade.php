@@ -1,33 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="icon" type="image/png" href="images/logo.png" />
-    <link rel = "stylesheet" type = "text/css" href = "{{ asset('css/stylelogin.css')}}" />
-    <title>Registation Page</title>
-   
-    
-  </head>
-  <body>
-       <nav class="navbar navbar-expand-lg navbar-light fixd-top ">
-            <div class="mr-auto col-sm-3 col-lg-2 col-xs-12">
-                 <img src="images/logo.png" width="205px" height="70px" alt="Responsive image" class="d-inline-block align-left">
-            </div>
-            <ul class="navbar-nav mr-auto mt-0 mt-lg-1">
-                <h2 class=" font-weight-bold " style="margin-right:100px; color:#FFFFFF">ASPARAI<span style="margin-left:15px; margin-right:15px; ">REPAIR & MAINTENANCE SERVICE</span></h2>
-            </ul>
-        </nav>
+@extends('layouts.operator')
+@section('content')
+
+<div class="container">
+
+<br/>
         
         
-         <div class="container logform col-lg-6 mt-3">
+        
+         <div class="container card logform col-lg-8 mr-3 ">
         <div class="card-header row">
               <h5  class="col-sm-6 offset-sm-3 mt-2" >Purchase product details</h5>
        </div>
              <div  class="card-body ">
-               <form method="POST" action="{{ route('register') }}"  class="form-horizontal mt-4">
+               <form method="POST" action="{{ action('PurchaseProductController@store') }}"  class="form-horizontal mt-4">
                   {{csrf_field()}}
                    <div class="form-group row  {{ $errors->has('nic') ? 'has-error' : '' }} ">
                         <label for="nic" class="col-form-lable-sm col-sm-3">Customer NIC</label>
@@ -42,17 +27,30 @@
                        
                         
                    </div>
-                   <div class="form-group row  {{ $errors->has('type') ? 'has-error' : '' }} ">
-                        <label for="type" class="col-form-lable-sm col-sm-3">Product Type</label>
-                        
-                        <div  class="col-sm-8" >
-                          <input type="text" class="form-control" name="type" value="{{old('type')}}" placeholder="Enter Product type"  autofocus>
-                          @if ($errors->has('type'))
+                 
+
+
+                    <div class="form-group row  {{ $errors->has('type') ? 'has-error' : '' }} ">
+                        <label for="productcatname" class="col-form-lable-sm col-sm-3">Product Type</label>
+                        <div class="col-sm-8">
+                        <select id="type" class="form-control" name="type" autofocus>
+                                 <option value="">Choose Product Type</option>
+                                 @if(count($types)>0)
+                                 @foreach($types as $type)
+                                      <option value="{{$type->type_id}}" >{{$type->type}}</option>
+                                 @endforeach
+                                 @endif
+
+                                 
+                        </select>
+                                 @if ($errors->has('type'))
                                     <span class="help-block" >
                                         <strong>{{ $errors->first('type') }}</strong>
                                     </span>
-                            @endif
+                                 @endif
+                           
                         </div>
+                       
                         
                    </div>
                    <div class="form-group row  {{ $errors->has('product_name') ? 'has-error' : '' }} ">
@@ -118,10 +116,9 @@
              </div>
         </div>
         <br>
+        @endsection
         
-  </body>
-</html>
-
+  
             
                        
                      

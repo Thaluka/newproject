@@ -1,4 +1,4 @@
-@extends('layouts.customer')
+@extends('layouts.supervisor')
 
 @section('content')
 <div class="container">
@@ -8,7 +8,7 @@
     
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Complains</div>
+                <div class="card-header">New Complaints</div>
 
                 <div class="card-body">
                  @if(Session::has('flash_message_success'))
@@ -24,10 +24,11 @@
                                      <div class="card-header mt-1 mt-2">
                                          <a href="/complains/{{$complain->id}}/edit" ><h1>{{$complain->type}}-{{$complain->product_name }}</h1></a>
                                              <diV class="container message">
-                                                 {{$complain->message}}
+                                                 <h5 >Problem: {{$complain->message}}</h5>
                                              </div>
-                                         <h6 class="ml-1" >{{$complain->address }}</h6>
-                                         <h6 class="ml-1" >{{$complain->region}}</h6>
+                                             <br>
+                                         <h6 class="ml-1" >Address:{{$complain->address }}</h6>
+                                         <h6 class="ml-1" >Region: {{$complain->region}}</h6>
                                              
                                      </div>
                               @endforeach

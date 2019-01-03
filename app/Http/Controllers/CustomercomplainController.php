@@ -66,6 +66,17 @@ class CustomercomplainController extends Controller
         return view('customercomplain.create')->with('types',$types);
     }
 
+
+      public function createop()
+    {
+        $types= Type::orderBy('created_at','type_id')->get();
+        return view('operator.jobreq_operator')->with('types',$types);
+    }
+
+
+
+
+
     /**
      * Store a newly created resource in storage.
      *
@@ -96,7 +107,7 @@ class CustomercomplainController extends Controller
         $complain->type_id = $request->input('type');
         $complain->product_name = $request->input('name');
         $complain->message=$request->input('message');
-        $complain->image =$cover->getFilename().'.'.$extension;
+        // $complain->image =$cover->getFilename().'.'.$extension;
         $complain->address = $request->input('address');
         $complain->region = $request->input('region');
         $complain->user_email=Auth::user()->email;

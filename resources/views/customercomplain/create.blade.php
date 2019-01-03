@@ -12,7 +12,7 @@ Send Request
 
     <div class="container-fluid col-md-8">
          <div class="card mt-2 mb-1 justify-content-center ">
-             <div class="card-header"><h5>Send Request<h5></div>
+             <div class="card-header"><h5>Make Complaint<h5></div>
 
                  <div class="card-body justify-content-center">
                    

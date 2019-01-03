@@ -101,7 +101,9 @@ class TechnicianController extends Controller
      */
     public function show($id)
     {
-        //
+       
+        
+        return ('done');
     }
 
     /**
@@ -135,7 +137,7 @@ class TechnicianController extends Controller
     public function update(Request $request, $id )
     {
       
-        $technician = technician::find($id);
+        $technician = technician ::find($id);
         $technician->email = $request->input('email');
         $technician->birth = $request->input('birth');
         $technician->type_id = $request->input('type');
@@ -154,6 +156,11 @@ class TechnicianController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $technician = technician ::find($id);
+        $technician->delete();
+        return redirect('/technicians')->with ('flash_message_success','Delete successfully');
     }
+
+
+
 }

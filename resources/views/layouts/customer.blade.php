@@ -11,7 +11,7 @@
      <title>@yield('title')</title>
     
      </head>
-     <body>
+     <body background="{{ asset('images/index5.jpg')}}">
   
      <nav class="navbar navbar-expand-sm fixed-top navbar-dark">
        <a class="navbar-brand" href="#"> <img src="{{ asset('images/logo.png')}}" width="160px" height="40px" alt="Responsive image" class="d-inline-block align-left"></a>
@@ -22,15 +22,15 @@
        <div class="collapse navbar-collapse" id="navbarsExample02">
          <ul class="navbar-nav mr-auto">
            <li class="nav-item active">
-             <a class="nav-link " href="#">Home <span class="sr-only">(current)</span></a>
+             <a class="nav-link " href="/customer">Home <span class="sr-only">(current)</span></a>
            </li>
            <li class="nav-item dropdown">
-             <a class="nav-link active  dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Request</a>
+             <a class="nav-link active  dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Service Requests</a>
                <div class="dropdown-menu navdropdown" aria-labelledby="dropdown01">
-                 <a class="dropdown-item" href="{{url('customercomplain/create')}}">Post Service</a>
+                 <a class="dropdown-item" href="{{url('customercomplain/create')}}">Make Complaints</a>
                  <a class="dropdown-item" href="{{url('customercomplain')}}">View</a>
-                 <a class="dropdown-item" href="#">Status</a>
-                 <a class="dropdown-item" href="#">Estimation</a>
+                 <a class="dropdown-item" href="#">Feedback</a>
+                 <a class="dropdown-item" href="#">Estimations</a>
                </div>
            </li>
          </ul>

@@ -15,6 +15,11 @@ input[type="text"]{
 	border:solid #09C 2px;
 }
 
+input[type="date"]{
+	
+	border:solid #09C 2px;
+}
+
 input[type="email"]{
 	
 	border:solid #09C 2px;

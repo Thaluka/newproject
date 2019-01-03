@@ -4,6 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
+
+
+use App\Type;
+
+use App\User;
+
+use App\Complain;
+
+use App\Technician;
+
+use Illuminate\Support\Facades\Hash;
+
+use Illuminate\Support\Facades\DB;
+
+
 class TechnicianjobController extends Controller
 {
     /**
@@ -13,7 +29,7 @@ class TechnicianjobController extends Controller
      */
     public function index()
     {
-        //
+        return view('technicianjobs.index');
     }
 
     /**
@@ -23,7 +39,29 @@ class TechnicianjobController extends Controller
      */
     public function create()
     {
-        //
+        $useremail= Auth::user()->email;
+        $complain = DB::table('complains')
+
+        // $types= Type::orderBy('created_at','type_id')
+       
+
+        ->select('complains.type_id')
+        ->where('status','=', 'assign')
+        ->where('technician_email','=',$useremail)
+        ->pluck('complains.type_id')
+        ->first();
+
+        // $parts = DB::table('parts')
+        // ->join('types', 'parts.type_id', '=', 'types.type_id')
+        // ->select('parts.*', 'types.type')
+        // ->where('parts.type_id', '=', $typeid)
+        // ->orderBy('updated_at','desc')
+        // ->get();
+
+        return view('technicianjobs.create')->with('complains',$complain);
+        
+        
+    
     }
 
     /**
@@ -45,7 +83,7 @@ class TechnicianjobController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**

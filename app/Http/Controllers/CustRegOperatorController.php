@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\User;
 
+use App\Type;
+
+
 
 use Illuminate\Support\Facades\Hash;
 
@@ -22,7 +25,12 @@ class CustRegOperatorController extends Controller
      */
     public function index()
     {
-        return view('operator.custreg_operator');
+        $users = DB::table('users')
+        ->select('users.*')
+        ->where ('role', '=','customer')
+        ->orderBy('users.created_at','desc')
+        ->paginate(10);
+        return view('operator.customerview')->with('users',$users);
     
        
     }
@@ -34,9 +42,12 @@ class CustRegOperatorController extends Controller
      */
     public function create()
     {
+        $types= Type::orderBy('created_at','type_id')->get();
+
+        return view('operator.custreg_operator')->with('types',$types);
 
 
-        return view('operator.custreg_operator');
+       
     }
 
     /**

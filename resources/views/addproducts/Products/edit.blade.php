@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.operator')
 
 @section('content')
 <div class="container">
@@ -6,7 +6,7 @@
 <br/>
     <div class="row justify-content-center">
     
-        <div class="col-md-8">
+        <div class="col-md-8 ml-5 mt-4">
             <div class="card">
                 <div class="card-header">Products</div>
 

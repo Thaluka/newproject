@@ -27,10 +27,10 @@
            <li class="nav-item dropdown">
              <a class="nav-link active  dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Request</a>
                <div class="dropdown-menu navdropdown" aria-labelledby="dropdown01">
-                 <a class="dropdown-item" href="{{url('customercomplain/create')}}">Post Service</a>
+               
                  <a class="dropdown-item" href="{{url('customercomplain')}}">View</a>
                  <a class="dropdown-item" href="#">Status</a>
-                 <a class="dropdown-item" href="#">Estimation</a>
+                 <a class="dropdown-item" href="{{url('estimationview')}}">Create Estimation</a>
                </div>
            </li>
          </ul>

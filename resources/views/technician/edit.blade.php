@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.operator')
 
 @section('content')
 <div class="container">
@@ -137,7 +137,7 @@
                   
                    <div class="form-group row mt-0 mb-0">
                              <div  class="col-sm-6 offset-sm-3">
-                        	       <button type="submit" class="col-sm-6  btn-primary btn-sm btn-block ">Register</button>
+                        	       <button type="submit" class="col-sm-6  btn-primary btn-sm btn-block ">Update</button>
                              </div>
                         </div>
              </form>

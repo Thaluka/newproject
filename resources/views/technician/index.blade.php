@@ -1,15 +1,28 @@
-@extends('layouts.app')
+@extends('layouts.operator')
 
 @section('content')
- <div class="container">
+ <div class="container-fluid col-md-8 mr-5">
 
+<br/>
+
+<a href="/technicians/create" class="btn btn-primary">Register<a>
+    <br>
+    <br>
     <div class="row justify-content-center">
-    
-        <div class="col-md-12">
-             <div class="card">
-                <div class="card-header">Products</div>
 
-                <div class="card-body">
+
+   <!--   <div class="container card logform col-lg-8 mt-3 mr-3">
+ -->
+        
+
+            <div class="card">
+
+
+        <div class="card-header">
+              <h5  class=" mt-2" >Technicians Details</h5>
+       </div>
+
+               
                  @if(Session::has('flash_message_success'))
 
                  <div class="col-sm-12 alert alert-success alert-block">
@@ -18,7 +31,7 @@
                  </div>
                  @endif
                      <div class="col-md-12">
-                         <div class="card-header mt-1 mt-2">
+                         <div class="mt-1 mt-2">
                          <table class="table table-striped">
                              <tr>
                                  
@@ -65,5 +78,5 @@
         </div>
         <br>
     </div>
-</div>
+
 @endsection

@@ -51,8 +51,9 @@ class ComplainsController extends Controller
         $complains = DB::table('complains')
         ->join('types', 'complains.type_id', '=', 'types.type_id')
         ->select('complains.*', 'types.type')
+        ->where('status','=','Pending')
         ->orderBy('complains.created_at','desc')
-        ->paginate(4);
+        ->paginate(10);
         return view('complains.index')->with('complains',$complains);
     }
 
@@ -69,6 +70,18 @@ class ComplainsController extends Controller
         return view('complains.create')->with('types',$types);
        
     }
+
+
+    // public function createop()
+    // {
+
+    //     $types= Type::orderBy('created_at','type_id')->get();
+    //     return view('operator.jobreq_operator')->with('types',$types);
+       
+    // }
+
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -105,6 +118,8 @@ class ComplainsController extends Controller
 
         $user = User::Where('role','=','supervisor')->get();
 
+        // $types= Type::orderBy('created_at','type_id')->get();
+
         if(\Notification::send($user, new NewcomplainNotification(Complain::latest('id')->first())))
         {
             return back();
@@ -123,25 +138,23 @@ class ComplainsController extends Controller
 
 
              $complain = DB::table('complains')
-             ->join('types', 'complains.type_id', '=', 'types.type_id')
-             ->select('complains.*', 'types.type','types.type_id')
+             ->select('complains.*')
              ->where('complains.id','=',  $id)
-             ->first();
+             ->first (); 
 
              $myquery = DB::table('complains')
-             ->join('types', 'complains.type_id', '=', 'types.type_id')
-             ->select('types.type_id')
+             ->select('technician_email')
              ->where('complains.id','=',  $id)
-             ->pluck('types.type_id')
+             ->pluck('complains.technician_email')
              ->first();
 
-             $technicians = DB::table('technicians')
-             ->join('users', 'technicians.email', '=', 'users.email')
-             ->select('technicians.*', 'users.*')
-             ->where('technicians.type_id','=', $myquery)
-             ->get();
+             $user = DB::table('users') 
+             ->select('users.*')
+             ->where('users.email','=', $myquery)
+             ->first();
 
-             return view('complains.show')->with('complain',$complain)->with('technicians',$technicians);
+
+             return view('complains.show')->with('complain',$complain)->with('user',$user);
     }
 
     /**
@@ -168,6 +181,7 @@ class ComplainsController extends Controller
         $technicians = DB::table('technicians')
         ->join('users', 'technicians.email', '=', 'users.email')
         ->select('technicians.*', 'users.*')
+         ->where('technicians.tstatus','=','available')
         ->where('technicians.type_id','=', $myquery)
         ->get();
 
@@ -194,7 +208,12 @@ class ComplainsController extends Controller
         $technician->tstatus = "assign";
         $technician->save();
 
-        return view('complains')->with ('flash_message_success','Submit successfully');
+        $complains = DB::table('complains')
+        ->join('types', 'complains.type_id', '=', 'types.type_id')
+        ->select('complains.*', 'types.type')
+        ->orderBy('complains.created_at','desc')
+        ->paginate(4);
+        return view('complains.index')->with('complains',$complains);
         
     }
 
