@@ -16,11 +16,10 @@ class CreateTechniciansTable extends Migration
         Schema::create('technicians', function (Blueprint $table) {
             //$table->increments('uid');
             $table->string('email')->unique();
-            $table->foreign('email')->references('email')->on('users');
             $table->string('birth');
-            $table->integer('type_id')->unsigned();
-            $table->foreign('type_id')->references('type_id')->on('types');
+            $table->integer('type_id');
             $table->string('bank_act',30)->unique();
+            $table->string('tstatus')->nullable();
             $table->timestamps();
         });
 

@@ -3,12 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use willvincent\Rateable\Rateable;
 
 class Technician extends Model
 {
+    use Rateable;
+
     protected $table = 'technicians';
 
-    public $primaryKey = 'id';
+    public $primaryKey = 'email';
 
     public $timestamps = true;
 
@@ -26,5 +29,9 @@ class Technician extends Model
 
     public function type(){
         return $this->belongsTo('App\Type');
+    }
+
+    public function complains(){
+        return $this->hasMany('App\Complain');
     }
 }

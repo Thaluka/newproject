@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.customer')
 
 @section('content')
 <div class="container">
@@ -17,7 +17,13 @@
                     You are logged in!
                 </div>
             </div>
+         
+
         </div>
+           
+
     </div>
-</div>
-@endsection
+    </div>
+    <br><br><br><br><br>
+
+    @endsection

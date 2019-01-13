@@ -16,7 +16,15 @@ class Type extends Model
         return $this->hasMany('App\Product');
     }
 
+    public function parts(){
+        return $this->hasMany('App\Part');
+    }
+
     public function technicians(){
         return $this->hasMany('App\Technician');
+    }
+
+    public function complains(){
+        return $this->hasMany('App\Complain');
     }
 }

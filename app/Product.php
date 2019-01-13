@@ -19,4 +19,9 @@ class Product extends Model
     public function type(){
           return $this->belongsTo('App\Type');
     }
+
+    /*public function zones(){
+        $type_id = Input:: find('id');
+        return Product::where('type_id',$type_id)->get();
+    }*/
 }

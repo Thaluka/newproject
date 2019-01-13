@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Type;
+use Illuminate\Support\Facades\DB;
+
 
 class AddproductController extends Controller
 {
@@ -76,7 +78,15 @@ class AddproductController extends Controller
      */
     public function edit($id)
     {
-        //
+        //   $product = DB::table('products')
+        //     ->join('types', 'products.type_id', '=', 'types.type_id')
+        //     ->select('products.*', 'types.type')
+        //     ->where('products.id','=',  $id)
+        //     ->first();
+
+        //  $types= Type::orderBy('created_at','type_id')->get();
+    
+        // return view('addproducts.edit')->with('product',$product)->with('types',$types);
     }
 
     /**

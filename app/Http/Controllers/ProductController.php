@@ -19,6 +19,8 @@ class ProductController extends Controller
      *
      * @return void
      */
+
+     //AUTHNETICATION
     public function __construct()
     {
         $this->middleware('auth');
@@ -32,12 +34,12 @@ class ProductController extends Controller
      */
      public function index()
      {
-         $products = DB::table('products')
+             $products = DB::table('products')
              ->join('types', 'products.type_id', '=', 'types.type_id')
              ->select('products.*', 'types.type')
              ->orderBy('updated_at','desc')
              ->paginate(4);
-         return view('addproducts.products.index')->with('products',$products);
+              return view('addproducts.products.index')->with('products',$products);
      }
 
     /**
@@ -47,8 +49,12 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $types= Type::orderBy('created_at','type_id')->get();
-        return view('addproducts.products.create')->with('types',$types);
+        $types= Type::orderBy('created_at','type_id')
+                ->get();  
+
+                //dd($types);                      //FORM DROPDOWN TYPE
+
+        return view('addproducts.products.create')->with('types',$types);   //YELLOW (TYPES) OTHERSIDE VIEW CREATE.blade
     }
 
     /**
@@ -65,11 +71,11 @@ class ProductController extends Controller
             'product_code' => 'required|unique:products'
          ]);
 
-         $product = new product;
-         $product->type_id=$request->input('type');
-         $product->product_name=$request->input('product_name');
-         $product->product_code=$request->input('product_code');
-         $product->save();
+         $products = new product;
+         $products->type_id=$request->input('type');
+         $products->product_name=$request->input('product_name');
+         $products->product_code=$request->input('product_code');
+         $products->save();
          return redirect('/products')->with ('flash_message_success','Submit successfully');
     }
 

@@ -2,25 +2,63 @@
 
 @section('content')
 
+<h3 align="center">Products</h3>
+<h3 style="text-align: center;" class="mr-5">We Provide Our Service Mainly in Three Product Categories</h3>
+
+<div class="container mr-5">
+    <div class="row text-center">
+        <div class="card-deck " style="width: 75rem">      
+
+            <!--Panel-->
+            <div class="card bg-info text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Kitchen Equipments</h5>
+                </div>
+            </div>
+            <!--end Panel-->
+
+
+            <!--Panel-->
+            <div class="card bg-info text-white ">
+                <div class="card-body">
+                    <h5 class="card-title">Food Display Cabinets</h5>
+                </div>
+            </div>
+            <!--end Panel-->
+         
+    <!--Panel-->
+            <div class="card bg-info text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Laundary Equipments</h5>
+                </div>
+            </div>
+    <!--/.Panel-->
+        </div>
+    </div>
+</div>
+
 <br><br>
-<h2 align="center">Products</h2>
+
+
+
+
+
+
+
+
+
+
 <div class="container">
     <div class="row text-center">
-		<div class="card-deck">
+		<div class="card-deck">      
 
     		<!--Panel-->
     		<div class="card">
         		<div class="card-body">
-
             		<h5 class="card-title">Barbeque machine</h5>
-
-
              		<div class="col-md-12 col-md-offset-1">
 						<img src="{{ asset('images/barbeque.jpg')}}" alt="..." class="img-thumbnail rounded-float-left" width="100%" height="100%">
 					</div>
-
-            		<!-- <p class="card-text">This is a longer panel with supporting text below as a natural lead-in to additional content.
-                                                This content is a little bit longer.</p> -->
         		</div>
     		</div>
             <!--end Panel-->

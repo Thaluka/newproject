@@ -1,0 +1,44 @@
+nav{
+    font-family: Roboto;
+    background-color:#031768;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+.nav-item a{
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    font-family:sans-serif;
+    color: #FFFFFF;
+}
+
+.navdropdown{
+   background-color:#031768;
+   border: 2px solid #031768;
+}
+.logdrop{
+    width:20px;
+}
+.footer{
+   margin-top: 150px;
+   min-height:150px;
+   font-size:14;
+   color:#ffffff;
+   background-color:#000000;
+   bottom: 0;
+   right: 0;
+   left: 0;
+}
+
+.footer ul{
+ list-style-type:none;
+}
+
+body{
+	background-color:#f8fafc;
+}
+.help-block{
+    color: #ff0000;
+}
