@@ -9,18 +9,18 @@
         
          <div class="container card logform col-lg-8 mr-3 ">
         <div class="card-header row">
-              <h5  class="col-sm-6 offset-sm-3 mt-2" >Purchase product details</h5>
+              <h5  class="col-sm-6 offset-sm-3 mt-2" >Sold Product Details</h5>
        </div>
              <div  class="card-body ">
                <form method="POST" action="{{ action('PurchaseProductController@store') }}"  class="form-horizontal mt-4">
                   {{csrf_field()}}
-                   <div class="form-group row  {{ $errors->has('nic') ? 'has-error' : '' }} ">
-                        <label for="nic" class="col-form-lable-sm col-sm-3">Customer NIC</label>
+                   <div class="form-group row  {{ $errors->has('email') ? 'has-error' : '' }} ">
+                        <label for="nic" class="col-form-lable-sm col-sm-3">Customer Email</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control"  name="nic" value="{{old('nic')}}" placeholder="Enter customer NIC" autofocus>
-                            @if ($errors->has('nic'))
+                            <input type="text" class="form-control"  name="email" value="{{old('email')}}" placeholder="Enter customer's email" autofocus>
+                            @if ($errors->has('email'))
                                     <span class="help-block" >
-                                        <strong>{{ $errors->first('nic') }}</strong>
+                                        <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                             @endif
                         </div>
@@ -56,7 +56,7 @@
                    <div class="form-group row  {{ $errors->has('product_name') ? 'has-error' : '' }} ">
                         <label for="product_name" class="col-form-lable-sm  col-sm-3 " >Product Name</label>
                         <div  class="col-sm-8" >
-                          <input type="text" class="form-control" name="product_name" value="{{ old('product_name') }}"  placeholder="Enter Product name" autofocus>
+                          <input type="text" class="form-control" name="product_name" value="{{ old('product_name') }}"  placeholder="Enter product name" autofocus>
                           @if ($errors->has('product_name'))
                                     <span class="help-block" >
                                         <strong>{{ $errors->first('product_name') }}</strong>
@@ -67,9 +67,9 @@
                         
                    </div>
                    <div class="form-group row  {{ $errors->has('purchase_date') ? 'has-error' : '' }} ">
-                        <label for="purchase_date" class="col-form-lable-sm  col-sm-3 ">Purchase Date</label>
+                        <label for="purchase_date" class="col-form-lable-sm  col-sm-3 ">Purchased Date</label>
                         <div  class="col-sm-8" >
-                          <input  type="text" class="form-control" name="purchase_date" placeholder="Enter purchase date" autofocus>
+                          <input  type="text" class="form-control" name="purchase_date" placeholder="Enter purchased date" autofocus>
                           @if ($errors->has('purchase_date'))
                                     <span class="help-block" >
                                         <strong>{{ $errors->first('purchase_date') }}</strong>

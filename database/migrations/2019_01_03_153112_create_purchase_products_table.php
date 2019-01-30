@@ -13,9 +13,9 @@ class CreatePurchaseProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('purchase_products', function (Blueprint $table) {
+         Schema::create('purchase_products', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nic');
+            $table->string('email');
             $table->integer('type_id')->unsigned();
             $table->string('product_name');
             $table->string('purchase_date');
@@ -24,6 +24,8 @@ class CreatePurchaseProductsTable extends Migration
 
             $table->timestamps();
         });
+
+
     }
 
     /**

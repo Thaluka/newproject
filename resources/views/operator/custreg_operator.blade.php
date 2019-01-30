@@ -54,13 +54,13 @@
                         
                    </div>
                   
-                   <div class="form-group row  {{ $errors->has('nid') ? 'has-error' : '' }} ">
+                   <div class="form-group row  {{ $errors->has('nic') ? 'has-error' : '' }} ">
                         <label for="nic" class="col-form-lable-sm  col-sm-3 ">NIC</label>
                         <div  class="col-sm-8" >
                         	<input type="text" class="form-control" id="nic" name="nic" value="{{old('nic')}}" placeholder="Enter Customer's NIC number" autofocus >
-                        	@if ($errors->has('nid'))
+                        	@if ($errors->has('nic'))
                                     <span class="help-block" >
-                                        <strong>{{ $errors->first('nid') }}</strong>
+                                        <strong>{{ $errors->first('nic') }}</strong>
                                     </span>
                             @endif
                         </div>

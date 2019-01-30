@@ -9,11 +9,16 @@
     <link rel="icon" type="image/png" href="images/logo.png" />
     <link rel = "stylesheet" type = "text/css" href = "{{ asset('css/styleoperator.css')}}" />
     <link rel = "stylesheet" type = "text/css" href = "{{ asset('css/styleform.css')}}" />
+
+
+
+
     <title>@yield('title')</title>
    
     
   </head>
-  <body>
+  <body background="{{ asset('images/a3.jpg')}}">
+    
        <nav class="navbar navbar-expand-lg navbar-light fixd-top ">
             <div class="mr-auto col-sm-3 col-lg-2 col-xs-12">
                  <img src="images/logo.png" width="205px" height="70px" alt="Responsive image" class="d-inline-block align-left">
@@ -73,14 +78,18 @@
         <!-- Sidebar -->
         <div class="sidebar-wrapper" >
             <ul class="sidebar-nav mt-3" >
+
+                <li>
+                    
+                    <a href="{{url('/rate')}}">Customer Reviews</a>
+                </li>
+    
                 <li>
                     
                     <a href="{{url('/viewproducts')}}">Product details</a>
                 </li>
     
-                <li>
-                    <a href="{{url('/viewtechnicians')}}">Technicians details</a>
-                </li>
+    
                 <li>
                     <a href="{{url('/viewcomplains')}}">Complaint details</a>
                 </li>
@@ -89,20 +98,46 @@
                     <a href="{{url('/viewcustomers')}}">Customer details</a>
 
                 </li>
+
+
                 <li>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Staff Details</a>
+                    <ul class="collapse list-unstyled ml-3" id="homeSubmenu">
+                        <li>
+                            <a href="{{url('/viewtechnicians')}}">Technicians details</a>
+                            
+                        </li>
+                        <li>
+                             <a href="{{url('/viewsupervisors')}}">Supervisor details</a>
+                            
+                        </li>
+                        <li>
                     <a href="{{url('/viewoperators')}}">Operator details</a>
                 </li>
-                <li>
-                    <a href="{{url('/viewsupervisors')}}">Supervisor details</a>
+                      
+                            
+                    </ul>
                 </li>
-               <li>
-                    <a href="{{url('/create_supervisor')}}">Supervisor Registration</a>
+
+
+
+                 <li>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Staff Registration</a>
+                    <ul class="collapse list-unstyled ml-3" id="homeSubmenu">
+                        <li>
+                            <a href="{{url('/create_supervisor')}}">Supervisor Registration</a>
+                        </li>
+                        <li>
+                            <a href="{{url('/create_operator')}}">Operator Registration</a>
+                        </li>
+                      
+                            
+                    </ul>
                 </li>
-                <li>
-                    <a href="{{url('/create_operator')}}">Operator Registration</a>
-                </li>
+
             </ul>
         </div>
+    </div>
 
 
 

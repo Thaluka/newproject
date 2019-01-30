@@ -14,9 +14,10 @@
    
     
   </head>
-  <body>
+  <body background="{{ asset('images/a5.jpeg')}}">
        <nav class="navbar navbar-expand-lg navbar-light fixd-top ">
             <div class="mr-auto col-sm-3 col-lg-2 col-xs-12">
+                <!-- <div class="mr-auto col-sm-3 col-lg-2 col-xs-12"> -->
                  <img src="images/logo.png" width="205px" height="70px" alt="Responsive image" class="d-inline-block align-left">
             </div>
             <ul class="navbar-nav mr-auto mt-0 mt-lg-1">
@@ -32,13 +33,13 @@
     <div class="collapse navbar-collapse mr-2" id="navbarTogglerDemo01">
        <ul class="navbar-nav mr-auto">
        <li class="nav-item active mr-2">
-             <a class="nav-link mr-2" href="/index_operator"><b>Home </b><span class="sr-only">(current)</span></a>
+             <a class="nav-link mr-2" href="/operator"><b>Home </b><span class="sr-only">(current)</span></a>
            </li>
          </ul>
     
 
   
-         <ul class="navbar-nav ml-auto mr-2">
+         <ul class="navbar-nav ml-auto">
              <li class="nav-item active dropdown ">
                    <div class="container mr-5">
                      <a class="nav-link active dropdown-toggle" href="" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{ Auth::user()->fname }} <span class="caret"></span></a>
@@ -70,33 +71,53 @@
         <!-- Sidebar -->
         <div class="sidebar-wrapper" >
             <ul class="sidebar-nav mt-3" >
-                <li>
-                    
-                    <a href="{{url('/custreg_operator')}}">Customer Registration</a>
+               <li>
+                    <a href="{{url('/custreg_operator/create')}}">Customer Registration</a>
                 </li>
+
                 <li>
-                    <a href="{{url('/jobreq_operator')}}">Job Requests</a>
+                    <a href="{{url('/jobreq_operator/create')}}">Job Requests</a>
                 </li>
+
                 <li>
-                    <a href="{{url('/buydetails_products')}}">Purchase Product Details</a>
+                    <a href="{{url('/buydetails_products/create')}}">Sold Product Details</a>
                 </li>
+
+               
+
                 <li>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> Products</a>
+                    <ul class="collapse list-unstyled ml-3" id="homeSubmenu">
+                        <li>
+                            <a href="{{url('/products')}}">Add Products</a>
+                        </li>
+                        <li>
+                            <a href="{{url('/addproducts')}}">Add Product Types</a>
+                        </li>
+                        <li>
+                            <a href="{{url('/product_parts')}}">Add Product Parts</a>
+                        </li>
+                        <li>
+                            <a href="{{url('/addpart/create')}}">Inventory</a>
+                        </li>
+                    </ul>
+                </li>
+
+                 <li>
                     <a href="{{url('/technicians/create')}}">Technician Registration</a>
                 </li>
 
-
-                 <li>
+               <!--  <li>
                     <a href="{{url('/addproducts')}}">Add Product Types</a>
                 </li>
-                
 
-                 <li>
+                <li>
                     <a href="{{url('/products')}}">Add Products</a>
                 </li>
 
-                 <li>
+                <li>
                     <a href="{{url('/product_parts')}}">Add Product Parts</a>
-                </li>
+                </li>  -->
                 
                 
                
@@ -113,10 +134,10 @@
 
 <br/>
 <!-- <div class="container card logform col-lg-8 mr-3 "> -->
-    <div class="row text-center">
-    
+   <!--  <div class="row text-center"> -->
+    <div class="row ">
        <!--  <div class="col-md-8"> -->
-            <div class="card col-md-12">
+            <div class="card col-md-10 ml-0">
                 <div class="card-header">Product Types</div>
 
                 <div class="card-body">
@@ -127,32 +148,30 @@
                                   <strong>{!! session('flash_message_success') !!}</strong>
                  </div>
                  @endif
+                 
                      <div class="col-md-12">
                          <!-- <div class="card-header mt-1 mt-2"> -->
                          <table class="table table-striped">
                              <tr>
-                                 <th></th>
+                                <!--  <th></th> -->
                                  <th>Product Type</th>
-                                 <th>created at</th>
+                                 <th>Created at</th>
                                  <th></th>
                              </tr>
                          
                          @if(count($types)>0)
                              @foreach($types as $type)
                              <tr>
-                                 <th>{{$type->type_id}}</th>
+                                 <!-- <th>{{$type->type_id}}</th> -->
                                  <th>{{$type->type}}</th>
                                  <th>{{$type->created_at}}</th>
-                                 <th><a href="/addproducts/{{$type->type_id}}/edit" class="btn btn-primary">Edit<a></th>
+                               <!--   <th><a href="/addproducts/{{$type->type_id}}/edit" class="btn btn-primary">Edit<a></th> -->
                              </tr>  
                              @endforeach
                          @endif   
                          </table>               
-                     </div>
-                              
-                     <br/>
-                         
-                     </div>
+                    <br>
+                    <br>
                      <div class="row">
                          <diV class="mr-auto">
                              <a href="/addproducts/create" class="btn btn-default">Go to add</a>
@@ -169,4 +188,14 @@
     </div>
 </div>
 
+
+
+ <!-- jQuery CDN - Slim version (=without AJAX) -->
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+ <!-- Popper.JS -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+ <!-- Bootstrap JS -->
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+ <!-- jQuery Custom Scroller CDN -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 

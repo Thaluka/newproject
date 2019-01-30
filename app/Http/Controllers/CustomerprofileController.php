@@ -46,7 +46,7 @@ class CustomerprofileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return view ('customer.index_customer');
     }
 
     /**

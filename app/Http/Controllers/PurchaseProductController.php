@@ -27,9 +27,19 @@ class PurchaseProductController extends Controller
          //     ->select('purchase_products.*', 'types.type')
          //     ->orderBy('updated_at','desc')
          //     ->paginate(4);
-            $types= Type::orderBy('created_at','type_id')->get();
-            return view('operator.buydetails_products')->with('types',$types);
+            // $types= Type::orderBy('created_at','type_id')->get();
+            // return view('operator.buydetails_products')->with('types',$types);
         // return view('addproducts.product_parts.index')->with('purchase_products',$parts);
+
+         $PurchaseProduct=DB::table('purchase_products')
+         ->join('types', 'purchase_products.type_id', '=', 'types.type_id')
+         ->select('purchase_products.*','types.type')
+         ->orderBy('updated_at','desc')
+         ->get();
+         //>paginate(5);
+         //return $purchase_products;
+
+         return view('operator.customerpurchaseproductview')->with('PurchaseProducts',$PurchaseProduct);
     }
 
     /**
@@ -53,7 +63,8 @@ class PurchaseProductController extends Controller
     public function store(Request $request)
     {
          $product = new PurchaseProduct;
-         $product->nic=$request->input('nic');
+         // $product->nic=$request->input('nic');
+          $product->email=$request->input('email');
 
          $product->type_id=$request->input('type');
          $product->product_name=$request->input('product_name');

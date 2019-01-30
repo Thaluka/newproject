@@ -40,18 +40,18 @@ class SupervisorRegController extends Controller
     {
         $data=$request->all();
 
-         // $this->validate($request,[
-         //    'fname' => 'required|string|max:255',
-         //    'lname' => 'required|string|max:255',
-         //    'email' => 'required|string|email|max:255|unique:users',
-         //    'nic' => 'required|string|max:10|unique:users',
-         //    'mobile' => 'required|string|max:10',
-         //    'address' => 'required|string|max:255',
-         //    'birth'  => 'required|string|max:10',
-         //    'type'  => 'required|string|max:6',
-         //    'bank_act'  => 'required|string|max:30|unique:technicians'
+         $this->validate($request,[
+            'fname' => 'required|string|max:255',
+            'lname' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'nic' => 'required|string|max:10|unique:users',
+            'mobile' => 'required|string|max:10',
+            'address' => 'required|string|max:255',
+            'birth'  => 'required|string|max:10',
+            // 'type'  => 'required|string|max:6',
+            'bank_act'  => 'required|string|max:30|unique:technicians'
         
-         // ]);
+         ]);
         //$useremail = $request->input('email');
         //$password = $request->input('nid');// password is form field
        // $hashed = Hash::make($password);
@@ -73,7 +73,7 @@ class SupervisorRegController extends Controller
         $technician->bank_act = $data['bank_act'];
         $technician->save();
 
-        return redirect('/manager')->with ('flash_message_success','Submit successfully');
+        return redirect('/viewsupervisors')->with ('flash_message_success','Submit successfully');
     }
 
     /**

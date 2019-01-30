@@ -40,7 +40,8 @@
                    <div class="form-group row  {{ $errors->has('email') ? 'has-error' : '' }} ">
                         <label for="email" class="col-form-lable-sm  col-sm-3 " >E-mail</label>
                         <div  class="col-sm-8" >
-                        	<input id="email" type="email" class="form-control" name="email" value="{{ $technician->email }}"  placeholder="Enter your e-mail address" autofocus>
+                            <div>{{ $technician->email }}</div>
+                            <input type="hidden" value="{{ $technician->email }}" name="email">
                         	@if ($errors->has('email'))
                                     <span class="help-block" >
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -54,7 +55,7 @@
                    <div class="form-group row  {{ $errors->has('nic') ? 'has-error' : '' }} ">
                         <label for="nic" class="col-form-lable-sm  col-sm-3 ">NIC</label>
                         <div  class="col-sm-8" >
-                        	<input type="text" class="form-control" id="nic" name="nic" value="{{$technician->nic}}" placeholder="Enter your NIC number" autofocus >
+                        	<div>{{$technician->nic}}</div>
                         	@if ($errors->has('nic'))
                                     <span class="help-block" >
                                         <strong>{{ $errors->first('nic') }}</strong>
@@ -89,40 +90,7 @@
                                 @endif
                         </div>    
                    </div>
-                   <div class="form-group  row  {{ $errors->has('birth') ? 'has-error' : '' }}  ">
-                        <label for="Birth Day" class="col-form-lable-sm  col-sm-3 ">Birth Day</label>
-                        <div  class="col-sm-8" >
-                        	   <input type="date" id="Address" class="form-control" name="birth" value="{{$technician->birth}}" placeholder="Enter Birth Day" autofocus>
-                        	    @if ($errors->has('birth'))
-                                    <span class="help-block" >
-                                        <strong>{{ $errors->first('birth') }}</strong>
-                                    </span>
-                                @endif
-                        </div>    
-                   </div>
-                   <div class="form-group row  {{ $errors->has('type') ? 'has-error' : '' }} ">
-                        <label for="productcatname" class="col-form-lable-sm col-sm-3">Product Type</label>
-                        <div class="col-sm-8">
-                        <select id="type" class="form-control" name="type" autofocus>
-                                 <option value="{{$technician->type_id}}">{{$technician->type}}</option>
-                                 @if(count($types)>0)
-                                 @foreach($types as $type)
-                                      <option value="{{$type->type_id}}" >{{$type->type}}</option>
-                                 @endforeach
-                                 @endif
-
-                                 
-                        </select>
-                                 @if ($errors->has('type'))
-                                    <span class="help-block" >
-                                        <strong>{{ $errors->first('type') }}</strong>
-                                    </span>
-                                 @endif
-                        	 
-                        </div>
-                       
-                        
-                   </div>
+                  
                    <div class="form-group  row  {{ $errors->has('bank_act') ? 'has-error' : '' }}  ">
                         <label for="Birth Day" class="col-form-lable-sm  col-sm-3 ">Bank Account</label>
                         <div  class="col-sm-8" >

@@ -1,11 +1,11 @@
 @extends('layouts.operator')
 
 @section('content')
- <div class="container-fluid col-md-8 mr-5">
+ <div class="container-fluid col-md-9 mr-3">
 
 <br/>
 
-<a href="/technicians/create" class="btn btn-primary">Register<a>
+
     <br>
     <br>
     <div class="row justify-content-center">
@@ -28,11 +28,11 @@
                  <div class="col-sm-12 alert alert-success alert-block">
                      <button type="button" class="close" data-dismiss="alert"></button>
                                   <strong>{!! session('flash_message_success') !!}</strong>
-                 </div>
+                 <!-- </div> -->
                  @endif
                      <div class="col-md-12">
                          <div class="mt-1 mt-2">
-                         <table class="table table-striped">
+                         <table class="table table-striped mr-5">
                              <tr>
                                  
                                  <th>First Name</th>
@@ -55,16 +55,12 @@
                                  <th>{{$technician->nic}}</th>
                                  <th>{{$technician->mobile}}</th>
                                  <th><a href="/technicians/{{$technician->id}}/edit" class="btn btn-primary">Edit<a></th>
-                                 <th><a href="/technicians/{{$technician->id}}" class="btn btn-primary">Delete<a></th>
+                                 <th></th>
                              </tr>  
                              @endforeach
                          @endif   
                          </table>               
-                     </div>
-                              
-                     <br/>
-                         
-                     </div>
+                    
                      <div class="row">
                          <diV class="mr-auto">
                              <a href="/technicians/create" class="btn btn-default">Go to add</a>

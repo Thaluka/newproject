@@ -13,13 +13,13 @@
                 <div class="card-body">
                    
                      <div class="col-md-12">
-                     <form method="post" action="{{ action('ProductPartsController@update',$product->id) }}"   class="form-horizontal mt-4">
+                     <form method="post" action="{{ action('ProductPartsController@update',$part->id) }}"   class="form-horizontal mt-4">
                   {{csrf_field()}}   {{method_field('PUT')}}
                    <div class="form-group row  {{ $errors->has('type') ? 'has-error' : '' }} ">
                         <label for="productcatname" class="col-form-lable-sm col-sm-3">Product Type</label>
                         <div class="col-sm-8">
                         <select id="type" class="form-control" name="type" autofocus>
-                                     <option value="{{$product->type_id}}">{{$product->type}}</option>
+                                     <option value="{{$part->type_id}}">{{$part->type}}</option>
                                      @if(count($types)>0)
                                      @foreach($types as $type)
                                      <option value="{{$type->type_id}}" >{{$type->type}}</option>
@@ -42,7 +42,7 @@
                     <div class="form-group row  {{ $errors->has('product_name') ? 'has-error' : '' }} ">
                         <label for="productcatname" class="col-form-lable-sm col-sm-3">Part Name </label>
                         <div class="col-sm-8">
-                              <input type="text" class="form-control"  name="part_name" value="{{$product->part_name}}" placeholder="Enter Product Name" autofocus>
+                              <input type="text" class="form-control"  name="part_name" value="{{$part->part_name}}" placeholder="Enter Product Name" autofocus>
                               @if ($errors->has('part_name'))
                                     <span class="help-block" >
                                         <strong>{{ $errors->first('part_name') }}</strong>
@@ -53,27 +53,17 @@
                         
                    </div>
 
-                   <div class="form-group row  {{ $errors->has('part_code') ? 'has-error' : '' }} ">
-                        <label for="productcatname" class="col-form-lable-sm col-sm-3">Part Code </label>
-                        <div class="col-sm-8">
-                        	  <input type="text" class="form-control"  name="part_code" value="{{$product->part_code}}" placeholder="Enter Product Name" autofocus>
-                        	  @if ($errors->has('part_code'))
-                                    <span class="help-block" >
-                                        <strong>{{ $errors->first('part_code') }}</strong>
-                                    </span>
-                            @endif
-                        </div>
-                       
+                  
                         
                    </div>
 
-                   <div class="form-group row  {{ $errors->has('part_price') ? 'has-error' : '' }} ">
+                   <div class="form-group row  {{ $errors->has('product_price') ? 'has-error' : '' }} ">
                         <label for="productcode" class="col-form-lable-sm col-sm-3">Part Price</label>
                         <div class="col-sm-8">
-                        	  <input type="text" class="form-control"  name="product_code" value="{{$product->part_price}}" placeholder="Enter Product Code" autofocus>
-                        	  @if ($errors->has('part_price'))
+                        	  <input type="text" class="form-control"  name="product_price" value="{{$part->product_price}}" placeholder="Enter Product Code" autofocus>
+                        	  @if ($errors->has('product_price'))
                                     <span class="help-block" >
-                                        <strong>{{ $errors->first('part_price') }}</strong>
+                                        <strong>{{ $errors->first('product_price') }}</strong>
                                     </span>
                             @endif
                         </div>

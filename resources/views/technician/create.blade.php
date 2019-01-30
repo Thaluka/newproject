@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
     <div class="container logform col-lg-8 mt-3 mr-3">
         <div class="card-header row">
-              <h5  class="col-sm-6 offset-sm-3 mt-2" >Technicians Register</h5>
+              <h5  class="col-sm-6 offset-sm-3 mt-2" >Technicians Registration</h5>
        </div>
              <div  class="card-body ">
              <form method="POST" action="{{  action('TechnicianController@store') }}"  class="form-horizontal mt-4">
@@ -60,9 +60,9 @@
                                     </span>
                             @endif
                         </div>
-                        
-                        
-                   </div>
+                    </div>
+
+
                    <div class="form-group  row  {{ $errors->has('mobile') ? 'has-error' : '' }} ">
                         <label for="contactnumber" class="col-form-lable-sm  col-sm-3 ">Contact Number</label>
                         <div  class="col-sm-8" >
@@ -73,9 +73,7 @@
                                     </span>
                             @endif
                         </div>
-                        
-                        
-                   </div>
+                    </div>
                    
                    <div class="form-group  row  {{ $errors->has('address') ? 'has-error' : '' }}  ">
                         <label for="Address" class="col-form-lable-sm  col-sm-3 ">Address</label>
@@ -88,6 +86,7 @@
                                 @endif
                         </div>    
                    </div>
+
                    <div class="form-group  row  {{ $errors->has('birth') ? 'has-error' : '' }}  ">
                         <label for="Birth Day" class="col-form-lable-sm  col-sm-3 ">Birth Day</label>
                         <div  class="col-sm-8" >
@@ -99,6 +98,7 @@
                                 @endif
                         </div>    
                    </div>
+
                    <div class="form-group row  {{ $errors->has('type') ? 'has-error' : '' }} ">
                         <label for="productcatname" class="col-form-lable-sm col-sm-3">Product Type</label>
                         <div class="col-sm-8">
@@ -119,9 +119,8 @@
                                  @endif
                         	 
                         </div>
-                       
-                        
-                   </div>
+                    </div>
+                    
                    <div class="form-group  row  {{ $errors->has('bank_act') ? 'has-error' : '' }}  ">
                         <label for="Birth Day" class="col-form-lable-sm  col-sm-3 ">Bank Account</label>
                         <div  class="col-sm-8" >
@@ -136,7 +135,7 @@
                   
                    <div class="form-group row mt-0 mb-0">
                              <div  class="col-sm-6 offset-sm-3">
-                        	       <button type="submit" class="col-sm-6  btn-primary btn-sm btn-block ">Register
+                        	       <button type="submit" class="col-sm-6 offset-sm-4 btn-primary btn-sm btn-block ">Register
                                    </button>
                              </div>
                         </div>

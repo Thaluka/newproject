@@ -55,3 +55,29 @@ p{
    background-color:#077cea;
    
 }
+
+
+/* sidebar_dropdown */
+
+  a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 53%;
+    right: 54px;
+    transform: translateY(-50%);
+}
+
+
+
+/*body { 
+    background: url('http://www.publicdomainpictures.net/pictures/50000/velka/flower-meadow.jpg') no-repeat center center fixed
+-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    
+  }*/

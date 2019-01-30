@@ -24,7 +24,7 @@ class HoldComplaintController extends Controller
          $complains = DB::table('complains')
         ->join('types', 'complains.type_id', '=', 'types.type_id')
         ->select('complains.*', 'types.type')
-        ->where('status','=','hold')
+        ->where('status','=','Hold')
         ->orderBy('complains.created_at','desc')
         ->paginate(10);
         return view('supervisor.viewhold')->with('complains',$complains);
@@ -71,10 +71,12 @@ class HoldComplaintController extends Controller
      */
     public function edit($id)
     {
+       // return $id;
              $complain = DB::table('complains')
              ->select('complains.*')
              ->where('complains.id','=',  $id)
              ->first (); 
+             
 
              $myquery = DB::table('complains')
              ->select('technician_email')
@@ -87,12 +89,13 @@ class HoldComplaintController extends Controller
              ->select('users.*','technicians.*')
              ->where('users.email','=', $myquery)
              ->first();
+            return  $user;
 
-             //  $technician = DB::table('technicians')
-             // ->join('users', 'technicians.email', '=', 'users.email')
-             // ->select('technicians.*', 'users.*')
-             // ->where('technicians.type_id','=', $myquery)
-             // ->first();
+              $technician = DB::table('technicians')
+             ->join('users', 'technicians.email', '=', 'users.email')
+             ->select('technicians.*', 'users.*')
+             ->where('technicians.type_id','=', $myquery)
+             ->first();
 
 
           return view('supervisor.assignhold')->with('complain',$complain)->with('user',$user);
@@ -112,17 +115,17 @@ class HoldComplaintController extends Controller
        // return Session::get('mycomplain');
         $complain = complain :: find($id);
         $complain->technician_email=$request->input('technician_email');
-        $complain->status="assign";
+        $complain->status="Assigned";
         $complain->save();
 
         $technician = technician :: find($userEmail);
-        $technician->tstatus = "assign";
+        $technician->tstatus = "Assigned";
         $technician->save();
 
          $complains = DB::table('complains')
         ->join('types', 'complains.type_id', '=', 'types.type_id')
         ->select('complains.*', 'types.type')
-        ->where('status','=','assign')
+        ->where('status','=','Assigned')
         ->orderBy('complains.created_at','desc')
         ->paginate(10);
         return view('supervisor.viewassign')->with('complains',$complains);

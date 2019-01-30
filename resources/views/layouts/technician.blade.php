@@ -11,7 +11,7 @@
      <title>@yield('title')</title>
     
      </head>
-     <body>
+     <body background="{{ asset('images/14.jpg')}}">
   
      <nav class="navbar navbar-expand-sm fixed-top navbar-dark">
        <a class="navbar-brand" href="#"> <img src="{{ asset('images/logo.png')}}" width="160px" height="40px" alt="Responsive image" class="d-inline-block align-left"></a>
@@ -22,15 +22,16 @@
        <div class="collapse navbar-collapse" id="navbarsExample02">
          <ul class="navbar-nav mr-auto">
            <li class="nav-item active">
-             <a class="nav-link " href="technicianjob">Home <span class="sr-only">(current)</span></a>
+             <a class="nav-link " href="/technicianjobs">Home <span class="sr-only">(current)</span></a>
            </li>
            <li class="nav-item dropdown">
              <a class="nav-link active  dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Request</a>
                <div class="dropdown-menu navdropdown" aria-labelledby="dropdown01">
                
-                 <a class="dropdown-item" href="{{url('customercomplain')}}">View</a>
-                 <a class="dropdown-item" href="#">Status</a>
-                 <a class="dropdown-item" href="{{url('estimationview')}}">Create Estimation</a>
+                 <a class="dropdown-item" href="{{url('/view')}}">New Jobs</a>
+                 <a class="dropdown-item" href="{{url('/viewprocessing')}}">Processing Jobs</a>
+                 <a class="dropdown-item" href="{{url('viewprocessing/create')}}">Hold Jobs</a>
+                 <a class="dropdown-item" href="{{url('estimationview/create')}}">Create Estimation</a>
                </div>
            </li>
          </ul>
@@ -68,10 +69,10 @@
          <ul class="ml-auto  mt-3 mb-1 text-left">
          <div class="container mr-4">
            <div class="container">
-            <li><a class="text-white" href="#"><h5>Home</h5></a></li>
-            <li><a class="text-white" href="#"><h5>Product</h5></a></li>
-            <li><a class="text-white" href="#"><h5>Service</h5></a></li>
-            <li><a class="text-white" href="#"><h5>Request</h5></a></li>
+              <li><a class="text-white" href="{{url('homee')}}"><h5>Home</h5></a></li>
+            <li><a class="text-white" href="{{url('producthome')}}"><h5>Products</h5></a></li>
+            <li><a class="text-white" href="{{url('services')}}"><h5>Service</h5></a></li>
+            <li><a class="text-white" href="{{url('customerReviews')}}"><h5>Reviews</h5></a></li>
            </div>
            </div>
          </ul>

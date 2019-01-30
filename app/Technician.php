@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use willvincent\Rateable\Rateable;
 
 class Technician extends Model
 {
+    use Rateable;
+
     protected $table = 'technicians';
 
     public $primaryKey = 'email';

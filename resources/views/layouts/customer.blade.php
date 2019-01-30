@@ -27,10 +27,14 @@
            <li class="nav-item dropdown">
              <a class="nav-link active  dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Service Requests</a>
                <div class="dropdown-menu navdropdown" aria-labelledby="dropdown01">
+
+                 <a class="dropdown-item" href="{{url('/viewcustomerproducts')}}">Products</a>
                  <a class="dropdown-item" href="{{url('customercomplain/create')}}">Make Complaints</a>
-                 <a class="dropdown-item" href="{{url('customercomplain')}}">View</a>
-                 <a class="dropdown-item" href="#">Feedback</a>
-                 <a class="dropdown-item" href="#">Estimations</a>
+                 <a class="dropdown-item" href="{{url('customercomplain')}}">Complaints</a>
+                 <a class="dropdown-item" href="{{url('customerestimationview')}}">Estimations</a>
+                <!--  <a class="dropdown-item" href="#">Rate Technicians</a> -->
+                 
+                
                </div>
            </li>
          </ul>
@@ -56,8 +60,8 @@
      <div class="container" style="margin-top:100px;">
           @yield('content')
      </div>
-     <div class="container-fluid mt-2 mb-0">
-       <div class="row  footer">
+     <div class="container-fluid mt-6 mb-0 " style="margin-top: 100px;">
+       <div class="row  footer ">
          <ul class="mr-auto ml-0 mt-3 mb-1 text-left">
             <li><h4>Get in touch</h4></li>
             <li><h6>Telephone :- 011-2590758</h6></li>
@@ -68,10 +72,10 @@
          <ul class="ml-auto  mt-3 mb-1 text-left">
          <div class="container mr-4">
            <div class="container">
-            <li><a class="text-white" href="#"><h5>Home</h5></a></li>
-            <li><a class="text-white" href="#"><h5>Product</h5></a></li>
-            <li><a class="text-white" href="#"><h5>Service</h5></a></li>
-            <li><a class="text-white" href="#"><h5>Request</h5></a></li>
+            <li><a class="text-white" href="{{url('homee')}}"><h5>Home</h5></a></li>
+            <li><a class="text-white" href="{{url('producthome')}}"><h5>Products</h5></a></li>
+            <li><a class="text-white" href="{{url('services')}}"><h5>Service</h5></a></li>
+            <li><a class="text-white" href="{{url('customerReviews')}}"><h5>Reviews</h5></a></li>
            </div>
            </div>
          </ul>

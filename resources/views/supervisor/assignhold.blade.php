@@ -48,8 +48,8 @@
                  <div class="card" style="width: 20rem;">
                      <div class="card-body">
                           <img src="{{ asset('images/pro.png')}}" height="10%" width="27%" >
-                          <b>{{ $user->fname }}-{{ $user->lname }}<br></b> &nbsp&nbsp
-                           <b>Status - {{ $user->tstatus }}<br></b> 
+                          <b>{{ $user->fname }}&nbsp&nbsp{{ $user->lname }}<br></b> &nbsp&nbsp
+                           <b>Status &nbsp:&nbsp{{ $user->tstatus }}<br></b> 
                           </pre>
                           @if($user->tstatus =='available')
                            <form method="POST" action="{{  action('HoldComplaintController@update',$complain->id) }}" >

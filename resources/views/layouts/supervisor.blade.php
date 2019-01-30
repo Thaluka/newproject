@@ -9,16 +9,16 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="icon" type="image/png" href="images/logo.png" />
     <link rel = "stylesheet" type = "text/css" href = "{{ asset('css/stylesupervisor.css')}}" />
-<!--     <link rel = "stylesheet" type = "text/css" href = "{{ asset('css/customerindex.css')}}" />
- -->    <link href="{{ asset('css/simple-sidebar.css') }}" media="all" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/simple-sidebar.css') }}" media="all" rel="stylesheet" type="text/css" />
     <title>@yield('title')</title>
 </head>
 
 <!-- <body> -->
-<body background="{{ asset('images/14.jpg')}}">
+<body style="background-image: url('{{asset("images/14.jpg")}}');  background-repeat: no-repeat; background-size: cover; background-position: center center; height:100%">
+{{-- <body background="{{ asset('images/14.jpg')}}"> --}}
     <nav class="navbar navbar-expand-lg navbar-light fixd-top ">
         <div class="mr-auto col-sm-3 col-lg-2 col-xs-12">
-            <img src="images/logo.png" width="205px" height="70px" alt="Responsive image" class="d-inline-block align-left">
+            <img src="/images/logo.png" width="205px" height="70px" alt="Responsive image" class="d-inline-block align-left">
         </div>
         <ul class="navbar-nav mr-auto mt-0 mt-lg-1">
             <h2 class=" font-weight-bold " style="margin-right:100px; color:#FFFFFF">ASPARAI<span style="margin-left:15px; margin-right:15px; ">REPAIR & MAINTENANCE SERVICE</span></h2>
@@ -42,7 +42,7 @@
         <ul class="navbar-nav ml-auto mr-2">
             <li class="nav-item active dropdown ">
                 <div class="container mr-5">
-                    <a class="nav-link active dropdown-toggle" href="" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{ Auth::user()->fname }} <span class="caret"></span></a>
+                    <a class="nav-link active dropdown-toggle" href="" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <b>{{ Auth::user()->fname }}</b> <span class="caret"></span></a>
             
                     <div class="dropdown-menu navdropdown col-1 dropdown-menu-left " aria-labelledby="dropdown03">
                         <a class="dropdown-item" href="{{url('customerprofile')}}">Profile</a>
@@ -75,12 +75,11 @@
                     <a href="{{url('/viewhold')}}">Hold Complaints</a>
                     <a href="{{url('/viewcompleted')}}">Completed Complaints</a>
                     <a href="{{url('/viewrejected')}}">Rejected Complaints</a>
+                    <a href="{{url('/estimationapprove')}}">Estimations</a>
 
                 </li>
 
-                <li>
-                    <a href="#">Estimations</a>
-                </li> 
+                
                
             </ul>
         </div>

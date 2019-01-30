@@ -39,7 +39,7 @@
                    
                    <div class="form-group row mt-0 mb-0">
                              <div  class="col-sm-6 offset-sm-3">
-                        	       <button type="submit" class="col-sm-6  btn-primary btn-sm btn-block ">Add</button>
+                        	       <button type="submit" class="col-sm-6 offset-sm-4 btn-primary btn-sm btn-block ">Add</button>
                              </div>
                    </div>
              </form>

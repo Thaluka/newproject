@@ -39,6 +39,9 @@ class TechnicianController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    // get the product types 
     public function create()
     {
         $types= Type::orderBy('created_at','type_id')->get();
@@ -51,6 +54,9 @@ class TechnicianController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+
+    // store technician details in the db also use validation.
     public function store(Request $request)
     {
 
@@ -68,9 +74,8 @@ class TechnicianController extends Controller
             'bank_act'  => 'required|string|max:30|unique:technicians'
         
          ]);
-        //$useremail = $request->input('email');
-        //$password = $request->input('nid');// password is form field
-       // $hashed = Hash::make($password);
+      
+        // store data in the user table 
         $user = new user;
         $user->fname = $data['fname'];
         $user->lname = $data['lname'];
@@ -83,13 +88,15 @@ class TechnicianController extends Controller
         $user->role = 'technician';
         $user->save();
 
+        // store data in the technician table
         $technician = new technician;
         $technician->email = $data['email'];
         $technician->birth = $data['birth'];
         $technician->type_id = $data['type'];
         $technician->bank_act = $data['bank_act'];
         $technician->save();
-
+        
+    
         return redirect('/technicians')->with ('flash_message_success','Submit successfully');
     }
 
@@ -102,8 +109,15 @@ class TechnicianController extends Controller
     public function show($id)
     {
        
-        
-        return ('done');
+        //      $technicians = DB::table('technicians')
+        //      ->join('users', 'technicians.email', '=', 'users.email')
+        //      ->join('types', 'technicians.type_id', '=', 'types.type_id')
+        //      ->select('technicians.*', 'users.*','types.type')
+        //      ->where('users.id','=',  $id)
+        //      ->first();
+             
+        //  $types= Type::orderBy('created_at','type_id')->get();
+        // return view('technician.show')->with('technician',$technicians)->with('types',$types);
     }
 
     /**
@@ -114,12 +128,16 @@ class TechnicianController extends Controller
      */
     public function edit($id)
     {
+
+
              $technicians = DB::table('technicians')
              ->join('users', 'technicians.email', '=', 'users.email')
              ->join('types', 'technicians.type_id', '=', 'types.type_id')
              ->select('technicians.*', 'users.*','types.type')
              ->where('users.id','=',  $id)
              ->first();
+
+
               
 
          $types= Type::orderBy('created_at','type_id')->get();
@@ -136,13 +154,26 @@ class TechnicianController extends Controller
      */
     public function update(Request $request, $id )
     {
+        $techemail=$request->input('email');
+        
+        $userid=DB::table('users')
+        ->select('users.id')
+        ->where('users.email','=',$techemail)
+        ->pluck('users.id')
+        ->first();
+        
+        $user=user::find($userid);
+        $user->fname=$request->input('fname');
+        $user->lname=$request->input('lname');
+        $user->mobile=$request->input('mobile');
+        $user->address=$request->input('address');
+        $user->save();
+
       
-        $technician = technician ::find($id);
-        $technician->email = $request->input('email');
-        $technician->birth = $request->input('birth');
-        $technician->type_id = $request->input('type');
+        $technician = technician :: find($id);
         $technician->bank_act = $request->input('bank_act');
         $technician->save();
+
         
 
         return redirect('/technicians')->with ('flash_message_success','Update successfully');
@@ -156,9 +187,7 @@ class TechnicianController extends Controller
      */
     public function destroy($id)
     {
-        $technician = technician ::find($id);
-        $technician->delete();
-        return redirect('/technicians')->with ('flash_message_success','Delete successfully');
+ 
     }
 
 

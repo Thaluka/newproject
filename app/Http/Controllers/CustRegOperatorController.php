@@ -9,7 +9,6 @@ use App\User;
 use App\Type;
 
 
-
 use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Support\Facades\DB;
@@ -58,24 +57,24 @@ class CustRegOperatorController extends Controller
      */
     public function store(Request $request)
     {
+          
+        $data=$request->all();
 
-
-          $data=$request->all();
-
-         // $this->validate($request,[
-         //    'fname' => 'required|string|max:255',
-         //    'lname' => 'required|string|max:255',
-         //    'email' => 'required|string|email|max:255|unique:users',
-         //    'nic' => 'required|string|max:10|unique:users',
-         //    'mobile' => 'required|string|max:10',
-         //    'workplace'=>'required|string|max:255',
-         //    'address' => 'required|string|max:255',
-           
+         $this->validate($request,[
+            'fname' => 'required|string|max:255',
+            'lname' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'nic' => 'required|string|max:10|unique:users',
+            'mobile' => 'required|string|max:10',
+            'company'=>'required|string|max:255',
+            'address' => 'required|string|max:255',
         
-         // ]);
+         ]);
+
         //$useremail = $request->input('email');
         //$password = $request->input('nid');// password is form field
        // $hashed = Hash::make($password);
+
         $user = new user;
         $user->fname = $data['fname'];
         $user->lname = $data['lname'];

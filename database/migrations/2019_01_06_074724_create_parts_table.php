@@ -17,8 +17,8 @@ class CreatePartsTable extends Migration
             $table->increments('id');
             $table->integer('type_id')->unsigned();
             $table->string('part_name')->unique();
-            $table->string('part_code');
             $table->string('product_price');
+            $table->integer('product_quantity')->nullable(); 
             $table->timestamps();
         });
     }

@@ -8,7 +8,7 @@
     
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Complains</div>
+                <div class="card-header">Complaints</div>
 
                 <div class="card-body">
                 
@@ -17,11 +17,13 @@
                                      <div class="card-header mt-1 mt-2">
                                        
                                              <diV class="container message">
-                                                Problem : {{$complain->message}}
-                                             </div>
+                                                Complaint Description&nbsp: {{$complain->message}}
+                                             </div><br>
+                                              @if($complain->image != '')
                                              <div class="image mt-1 mb-1">
                                                  <img src="{{ asset('uploads/'.$complain->image) }}" width="200px" height="100px"  class="d-inline-block align-left">
                                              </div>
+                                             @endif
                                              <div class="row mt-1">
                                                  <div class="col-sm-8 mr-auto">
                                                      <h6 class="ml-1" >Address: {{$complain->address }}</h6>
@@ -47,8 +49,8 @@
             
                  <div class="card" style="width: 20rem;">
                      <div class="card-body">
-                          <img src="{{ asset('images/pro.png')}}" height="10%" width="27%" >
-                          <b>{{ $user->fname }}-{{ $user->lname }}<br></b> &nbsp&nbsp 
+                        <!--   <img src="{{ asset('images/pro.png')}}" height="10%" width="27%" > -->
+                          <b>{{ $user->fname }}&nbsp{{ $user->lname }}<br></b> &nbsp&nbsp 
                           </pre>
     
                      </div>

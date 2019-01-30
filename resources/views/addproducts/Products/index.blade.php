@@ -14,7 +14,7 @@
    
     
   </head>
-  <body>
+  <body background="{{ asset('images/a5.jpeg')}}">
        <nav class="navbar navbar-expand-lg navbar-light fixd-top ">
             <div class="mr-auto col-sm-3 col-lg-2 col-xs-12">
                  <img src="images/logo.png" width="205px" height="70px" alt="Responsive image" class="d-inline-block align-left">
@@ -32,7 +32,7 @@
     <div class="collapse navbar-collapse mr-2" id="navbarTogglerDemo01">
        <ul class="navbar-nav mr-auto">
        <li class="nav-item active mr-2">
-             <a class="nav-link mr-2" href="/index_operator"><b>Home </b><span class="sr-only">(current)</span></a>
+             <a class="nav-link mr-2" href="/operator"><b>Home </b><span class="sr-only">(current)</span></a>
            </li>
          </ul>
     
@@ -71,32 +71,52 @@
         <div class="sidebar-wrapper" >
             <ul class="sidebar-nav mt-3" >
                 <li>
-                    
-                    <a href="{{url('/custreg_operator')}}">Customer Registration</a>
+                    <a href="{{url('/custreg_operator/create')}}">Customer Registration</a>
                 </li>
+
                 <li>
-                    <a href="{{url('/jobreq_operator')}}">Job Requests</a>
+                    <a href="{{url('/jobreq_operator/create')}}">Job Requests</a>
                 </li>
+
                 <li>
-                    <a href="{{url('/buydetails_products')}}">Purchase Product Details</a>
+                    <a href="{{url('/buydetails_products/create')}}">Sold Product Details</a>
                 </li>
+
+               
+
                 <li>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Products</a>
+                    <ul class="collapse list-unstyled ml-3" id="homeSubmenu">
+                        <li>
+                            <a href="{{url('/products')}}">Add Products</a>
+                        </li>
+                        <li>
+                            <a href="{{url('/addproducts')}}">Add Product Types</a>
+                        </li>
+                        <li>
+                            <a href="{{url('/product_parts')}}">Add Product Parts</a>
+                        </li>
+                        <li>
+                            <a href="{{url('/addpart/create')}}">Inventory</a>
+                        </li>
+                    </ul>
+                </li>
+
+                 <li>
                     <a href="{{url('/technicians/create')}}">Technician Registration</a>
                 </li>
 
-                 <li>
+               <!--  <li>
                     <a href="{{url('/addproducts')}}">Add Product Types</a>
                 </li>
-                
 
-                 <li>
+                <li>
                     <a href="{{url('/products')}}">Add Products</a>
                 </li>
 
-                 <li>
+                <li>
                     <a href="{{url('/product_parts')}}">Add Product Parts</a>
-                </li>
-                
+                </li>  -->
                 
                
                
@@ -108,11 +128,11 @@
 
  <div class="container-fluid col-md-8 mr-3">
     <br>
-    <div class="row text-center">
+    <div class="row ">
     <!-- <div class="row justify-content-center"> -->
     
        <!--  <div class="col-md-8"> -->
-            <div class="card col-md-12">
+            <div class="card col-md-10 ml-0">
                 <div class="card-header mt-1 mt-2">Products</div>
             
 
@@ -128,7 +148,7 @@
                          <!-- <div class="card-header mt-1 mt-2"> -->
                          <table class="table table-striped">
                              <tr>
-                                 <th></th>
+                                
                                  <th>Name</th>
                                  <th>Code</th>
                                  <th>Type</th>
@@ -140,7 +160,7 @@
                          @if(count($products)>0)
                              @foreach($products as $product)
                              <tr>
-                                 <th>{{$product->id}}</th>
+                                <!--  <th>{{$product->id}}</th> -->
                                  <th>{{$product->product_name}}</th>
                                  <th>{{$product->product_code}}</th>
                                  <th>{{$product->type}}</th>

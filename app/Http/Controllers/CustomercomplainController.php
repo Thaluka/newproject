@@ -52,6 +52,8 @@ class CustomercomplainController extends Controller
         ->where('user_id','=', $user_id)
         ->orderBy('complains.created_at','desc')
         ->paginate(5);
+        //->get();
+        //return $complains;
         return view('customercomplain.index')->with('complains',$complains);
     }
 
@@ -67,11 +69,11 @@ class CustomercomplainController extends Controller
     }
 
 
-      public function createop()
-    {
-        $types= Type::orderBy('created_at','type_id')->get();
-        return view('operator.jobreq_operator')->with('types',$types);
-    }
+    //   public function createop()
+    // {
+    //     $types= Type::orderBy('created_at','type_id')->get();
+    //     return view('operator.jobreq_operator')->with('types',$types);
+    // }
 
 
 
@@ -107,12 +109,12 @@ class CustomercomplainController extends Controller
         $complain->type_id = $request->input('type');
         $complain->product_name = $request->input('name');
         $complain->message=$request->input('message');
-        // $complain->image =$cover->getFilename().'.'.$extension;
+        $complain->image =$cover->getFilename().'.'.$extension;
         $complain->address = $request->input('address');
         $complain->region = $request->input('region');
         $complain->user_email=Auth::user()->email;
         $complain->user_id=Auth::user()->id;
-        $complain->status='pending';
+        $complain->status='Pending';
         $complain->remember_token=$request->input('_token');
         $complain->save();
 
@@ -135,13 +137,34 @@ class CustomercomplainController extends Controller
      */
     public function show($id)
     {
-        $user_id = Auth::user()->id;
+        // $user_id = Auth::user()->id;
+        // $complain = DB::table('complains')
+        // ->join('types', 'complains.type_id', '=', 'types.type_id')
+        // ->select('complains.*', 'types.type','types.type_id')
+        // ->where('complains.id','=',  $id)
+        // ->first();
+        // return view('customercomplain.show')->with('complain',$complain)->with($user_id);
+
+
+        
         $complain = DB::table('complains')
         ->join('types', 'complains.type_id', '=', 'types.type_id')
         ->select('complains.*', 'types.type','types.type_id')
         ->where('complains.id','=',  $id)
         ->first();
-        return view('customercomplain.show')->with('complain',$complain)->with($user_id);
+
+        $technician=DB::table('complains')
+        ->select('complains.technician_email')
+        ->where('complains.id','=',  $id)
+        ->pluck('complains.technician_email')
+        ->first();
+
+        $user=DB::table('users')
+        ->select('users.*')
+        ->where('users.email','=',$technician)
+        ->first();
+
+        return view('customercomplain.show')->with('complain',$complain)->with('user',$user);
     }
 
     /**
@@ -152,7 +175,17 @@ class CustomercomplainController extends Controller
      */
     public function edit($id)
     {
-        //
+        //  $technicians = DB::table('technicians')
+        //      ->join('users', 'technicians.email', '=', 'users.email')
+        //      ->join('types', 'technicians.type_id', '=', 'types.type_id')
+        //      ->select('technicians.*', 'users.*','types.type')
+        //      ->where('users.id','=',  $id)
+        //      ->first();
+              
+
+        //  $types= Type::orderBy('created_at','type_id')->get();
+    
+        // return view('technician.edit')->with('technician',$technicians)->with('types',$types);
     }
 
     /**

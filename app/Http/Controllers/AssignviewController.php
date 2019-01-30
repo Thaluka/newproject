@@ -15,7 +15,7 @@ class AssignviewController extends Controller
     	 $complains = DB::table('complains')
         ->join('types', 'complains.type_id', '=', 'types.type_id')
         ->select('complains.*', 'types.type')
-        ->where('status','=','assign')
+        ->where('status','=','Assigned')
         ->orderBy('complains.created_at','desc')
         ->paginate(10);
         return view('supervisor.viewassign')->with('complains',$complains);
@@ -28,7 +28,7 @@ class AssignviewController extends Controller
     	 $complains = DB::table('complains')
         ->join('types', 'complains.type_id', '=', 'types.type_id')
         ->select('complains.*', 'types.type')
-        ->where('status','=','completed')
+        ->where('status','=','Completed')
         ->orderBy('complains.created_at','desc')
         ->paginate(10);
         return view('supervisor.viewcompleted')->with('complains',$complains);
@@ -40,7 +40,7 @@ class AssignviewController extends Controller
     	 $complains = DB::table('complains')
         ->join('types', 'complains.type_id', '=', 'types.type_id')
         ->select('complains.*', 'types.type')
-        ->where('status','=','hold')
+        ->where('status','=','Hold')
         ->orderBy('complains.created_at','desc')
         ->paginate(10);
         return view('supervisor.viewhold')->with('complains',$complains);
@@ -52,7 +52,7 @@ class AssignviewController extends Controller
     	 $complains = DB::table('complains')
         ->join('types', 'complains.type_id', '=', 'types.type_id')
         ->select('complains.*', 'types.type')
-        ->where('status','=','rejected')
+        ->where('status','=','Rejected')
         ->orderBy('complains.created_at','desc')
         ->paginate(10);
         return view('supervisor.viewrejected')->with('complains',$complains);

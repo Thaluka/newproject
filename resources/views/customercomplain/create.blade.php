@@ -74,7 +74,7 @@ Send Request
                          <label for="fileField" class=" col-form-label text-left"> Image upload </label>
                              <div class="col-sm-8 offset-sm-1">
                                  <input type="file" class="form-control-file" name="image"  >
-                                 <small class="small">upload a image of the product(if you can)</small>
+                                 <small class="small ">(Optional)</small>
                                  @if ($errors->has('image'))
                                      <span class="help-block" >
                                          <strong>{{ $errors->first('image') }}</strong>

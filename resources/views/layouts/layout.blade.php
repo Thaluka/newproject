@@ -47,6 +47,9 @@
       <li class="mangonav_tab nav-item active ml-0 col-md-3 col-auto mr-auto">
         <a class="nav-link text-left" href="{{url('services')}}">Services</a>
       </li>
+       <li class="mangonav_tab nav-item active ml-0 col-md-3 col-auto mr-auto">
+        <a class="nav-link text-left" href="{{url('customerReviews')}}">Reviews</a>
+      </li>
       <li class="mangonav_tab nav-item active ml-0 col-md-3 col-auto mr-auto">
         <a class="nav-link text-left" href="{{url('contacts')}}">Contact</a>
       </li>
@@ -68,9 +71,9 @@
 </body>
 
 <br>
-    <div class="card-footer text-muted">
-      <h4>Get in touch</h4>
-      <p>Telephone :- 011-2590758<br>
+    <div class="card-footer text-muted bg-dark">
+      <h4 style="color: white">Get in touch</h4>
+      <p style="color: white">Telephone :- 011-2590758<br>
         Address:- No.252, Golumadama Junction, Rathmalana<br>
         Email:- sales@asparai.com<br>
       </p>

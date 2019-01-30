@@ -10,11 +10,13 @@
     <link rel = "stylesheet" type = "text/css" href = "{{ asset('css/styleoperator.css')}}" />
 
     <link href="{{ asset('css/simple-sidebar.css') }}" media="all" rel="stylesheet" type="text/css" />
+
+
     <title>@yield('title')</title>
    
     
   </head>
-  <body>
+  <body background="{{ asset('images/a5.jpeg')}}">
        <nav class="navbar navbar-expand-lg navbar-light fixd-top ">
             <div class="mr-auto col-sm-3 col-lg-2 col-xs-12">
                  <img src="images/logo.png" width="205px" height="70px" alt="Responsive image" class="d-inline-block align-left">
@@ -32,7 +34,7 @@
     <div class="collapse navbar-collapse mr-2" id="navbarTogglerDemo01">
        <ul class="navbar-nav mr-auto">
        <li class="nav-item active mr-2">
-             <a class="nav-link mr-2" href="/index_operator"><b>Home </b><span class="sr-only">(current)</span></a>
+             <a class="nav-link mr-2" href="/operator"><b>Home </b><span class="sr-only">(current)</span></a>
            </li>
          </ul>
     
@@ -70,33 +72,53 @@
         <!-- Sidebar -->
         <div class="sidebar-wrapper" >
             <ul class="sidebar-nav mt-3" >
-                <li>
-                    
-                    <a href="{{url('/custreg_operator')}}">Customer Registration</a>
+                 <li>
+                    <a href="{{url('/custreg_operator/create')}}">Customer Registration</a>
                 </li>
+
                 <li>
-                    <a href="{{url('/jobreq_operator')}}">Job Requests</a>
+                    <a href="{{url('/jobreq_operator/create')}}">Job Requests</a>
                 </li>
+
                 <li>
-                    <a href="{{url('/buydetails_products')}}">Purchase Product Details</a>
+                    <a href="{{url('/buydetails_products/create')}}">Sold Product Details</a>
                 </li>
+
+               
+
                 <li>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> Products</a>
+                    <ul class="collapse list-unstyled ml-3" id="homeSubmenu">
+                        <li>
+                            <a href="{{url('/products')}}">Add Products</a>
+                        </li>
+                        <li>
+                            <a href="{{url('/addproducts')}}">Add Product Types</a>
+                        </li>
+                        <li>
+                            <a href="{{url('/product_parts')}}">Add Product Parts</a>
+                        </li>
+                        <li>
+                            <a href="{{url('/addpart/create')}}">Inventory</a>
+                        </li>
+                    </ul>
+                </li>
+
+                 <li>
                     <a href="{{url('/technicians/create')}}">Technician Registration</a>
                 </li>
 
-                 <li>
+               <!--  <li>
                     <a href="{{url('/addproducts')}}">Add Product Types</a>
                 </li>
-                
 
-                 <li>
+                <li>
                     <a href="{{url('/products')}}">Add Products</a>
                 </li>
 
-                 <li>
+                <li>
                     <a href="{{url('/product_parts')}}">Add Product Parts</a>
-                </li>
-                
+                </li>  -->
                 
                
                
@@ -108,11 +130,11 @@
 
  <div class="container-fluid col-md-8 mr-3">
     <br>
-    <div class="row text-center">
+    <div class="row ">
     <!-- <div class="row justify-content-center"> -->
     
        <!--  <div class="col-md-8"> -->
-            <div class="card col-md-12">
+            <div class="card col-md-10 ml-0">
                 <div class="card-header mt-1 mt-2">Product Parts</div>
             
 
@@ -122,15 +144,16 @@
                  <div class="col-sm-12 alert alert-success alert-block">
                      <button type="button" class="close" data-dismiss="alert"></button>
                                   <strong>{!! session('flash_message_success') !!}</strong>
-                <!--  </div> -->
+                 </div>
                  @endif
+                
                      
                          <!-- <div class="card-header mt-1 mt-2"> -->
                          <table class="table table-striped">
                              <tr>
-                                 <th>Type ID</th>
+                                 <th>Type</th>
                                  <th>Name</th>
-                                 <th>Code</th>
+                                <!--  <th>Code</th> -->
                                  <th>Price</th>
                                 
                                  <th></th>
@@ -140,13 +163,14 @@
                          @if(count($parts)>0)
                              @foreach($parts as $part)
                              <tr>
-                                 <th>{{$part->type_id}}</th>
+                                <!--  <th>{{$part->type_id}}</th> -->
+                                <th>{{$part->type}}</th>
                                  <th>{{$part->part_name}}</th>
-                                 <th>{{$part->part_code}}</th>
+                                 
                         
                                  <th>{{$part->product_price}}</th>
                                  <th><a href="/product_parts/{{$part->id}}/edit" class="btn btn-primary">Edit<a></th>
-                                 <th><a href="/product_parts/{{$part->id}}" class="btn btn-primary">Delete<a></th>
+                                 <!-- <th><a href="/product_parts/{{$part->id}}" class="btn btn-primary">Delete<a></th> -->
                              </tr>  
                              @endforeach
                          @endif   

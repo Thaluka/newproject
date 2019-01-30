@@ -12,9 +12,9 @@ View Request
 <br/>
     <div class="row justify-content-center">
     
-        <div class="col-md-10">
+        <div class="col-md-9">
             <div class="card">
-                <div class="card-header">Complaints</div>
+                <div class="card-header"><h5>Complaints</h5></div>
 
                 <div class="card-body">
                  @if(Session::has('flash_message_success'))
@@ -28,62 +28,79 @@ View Request
                          @if(count($complains)>0)
                              @foreach($complains as $complain)
                                  @if ($complain->status=='Pending')
-                                     <div class="card-body complainview  mt-1 mt-2 bg-danger">
-                                         <a href="/customercomplain/{{$complain->id}}/" class="text-white" ><h3>{{$complain->type}}-{{$complain->product_name }}</h3></a>
-                                            
+                                     <div class="card-body complainview  mt-1 mt-2 bg-danger ">
+                                         <a href="/customercomplain/{{$complain->id}}/" class="text-white" ><h5>{{$complain->type}}-{{$complain->product_name }}</h5></a>
+                                      <!--       
                                          <h6 class="ml-1" >{{$complain->address }}</h6>
-                                         <h6 class="ml-1" >{{$complain->region}}</h6>
+                                         <h6 class="ml-1" >{{$complain->region}}</h6> -->
                                          <div class="row mb-0 ">
-                                             <div class="col-sm-3 offset-sm-2"><a href="/customercomplain/{{$complain->id}}" class="text-white">view</a></div>
-                                             <div class="col-sm-3 offset-sm-3">Status:{{$complain->status}}</div>
+                                             <div class="col-sm-3 offset-sm-2"><a href="/customercomplain/{{$complain->id}}" class="text-white">View</a></div>
+                                             <div class="col-sm-3 offset-sm-3">Status&nbsp:&nbsp{{$complain->status}}</div>
                                          </div>
                                              
                                      </div>
-                                 @elseif ($complain->status=='Assign')
+                                 @elseif ($complain->status=='Assigned' OR $complain->status=='Sending')
                                      <div class="card-body complainview  mt-1 mt-2 bg-warning">
-                                         <a href="/customercomplain/{{$complain->id}}" class="text-white" ><h3>{{$complain->type}}-{{$complain->product_name }}</h3></a>
+                                         <a href="/customercomplain/{{$complain->id}}" class="text-white" ><h5>{{$complain->type}}-{{$complain->product_name }}</h5></a>
                                              
-                                         <h6 class="ml-1" >{{$complain->address }}</h6>
-                                         <h6 class="ml-1" >{{$complain->region}}</h6>
+                                        <!--  <h6 class="ml-1" >{{$complain->address }}</h6>
+                                         <h6 class="ml-1" >{{$complain->region}}</h6> -->
                                          <div class="row mb-0 ">
-                                             <div class="col-sm-3 offset-sm-2"><a href="/customercomplain/{{$complain->id}}" class="text-white">view</a></div>
-                                             <div class="col-sm-3 offset-sm-3">{{$complain->status}}</div>
+                                             <div class="col-sm-3 offset-sm-2"><a href="/customercomplain/{{$complain->id}}" class="text-white">View</a></div>
+                                             <div class="col-sm-3 offset-sm-3">Status&nbsp:&nbsp{{$complain->status}}</div>
                                          </div>
                                              
                                      </div>
-                                 @elseif ($complain->status=='Complete')
+                                 @elseif ($complain->status=='Completed')
                                      <div class="card-body complainview  mt-1 mt-2 bg-success">
-                                         <a href="/customercomplain/{{$complain->id}}" class="text-white" ><h3>{{$complain->type}}-{{$complain->product_name }}</h3></a>
+                                         <a href="/customercomplain/{{$complain->id}}" class="text-white" ><h5>{{$complain->type}}-{{$complain->product_name }}</h5></a>
                                             
-                                         <h6 class="ml-1" >{{$complain->address }}</h6>
-                                         <h6 class="ml-1" >{{$complain->region}}</h6>
+                                         <!-- <h6 class="ml-1" >{{$complain->address }}</h6>
+                                         <h6 class="ml-1" >{{$complain->region}}</h6> -->
                                          <div class="row mb-0 ">
-                                             <div class="col-sm-3 offset-sm-2"><a href="/customercomplain/{{$complain->id}}" class="text-white">view</a></div>
-                                             <div class="col-sm-3 offset-sm-3">{{$complain->status}}</div>
+                                             <div class="col-sm-3 offset-sm-2"><a href="/customercomplain/{{$complain->id}}" class="text-white">View</a></div>
+                                             <div class="col-sm-3 offset-sm-3">Status&nbsp:&nbsp{{$complain->status}}</div>
                                          </div>
                                              
                                      </div>
-                                 @elseif ($complain->status=='Waiting')
+                                 @elseif ($complain->status=='Hold')
+                                     <div class="card-body complainview  mt-1 mt-2 bg-primary">
+                                         <a href="/customercomplain/{{$complain->id}}" class="text-white"><h5>{{$complain->type}}-{{$complain->product_name }}</h5></a>
+                                             
+                                         <!-- <h6 class="ml-1" >{{$complain->address }}</h6>
+                                         <h6 class="ml-1" >{{$complain->region}}</h6> -->
+                                         <div class="row mb-0 ">
+                                             <div class="col-sm-3 offset-sm-2"><a href="/customercomplain/{{$complain->id}}" class="text-white">View</a></div>
+                                             <div class="col-sm-3 offset-sm-3">Status&nbsp:&nbsp{{$complain->status}}</div>
+                                         </div>
+                                             
+                                     </div>
+
+                                      @elseif ($complain->status=='Processing')
                                      <div class="card-body complainview  mt-1 mt-2 bg-info">
-                                         <a href="/customercomplain/{{$complain->id}}" class="text-white"><h3>{{$complain->type}}-{{$complain->product_name }}</h3></a>
+                                         <a href="/customercomplain/{{$complain->id}}" class="text-white"><h5>{{$complain->type}}-{{$complain->product_name }}</h5></a>
                                              
-                                         <h6 class="ml-1" >{{$complain->address }}</h6>
-                                         <h6 class="ml-1" >{{$complain->region}}</h6>
+                                        <!--  <h6 class="ml-1" >{{$complain->address }}</h6>
+                                         <h6 class="ml-1" >{{$complain->region}}</h6> -->
                                          <div class="row mb-0 ">
-                                             <div class="col-sm-3 offset-sm-2"><a href="/customercomplain/{{$complain->id}}" class="text-white">view</a></div>
-                                             <div class="col-sm-3 offset-sm-3">{{$complain->status}}</div>
+                                             <div class="col-sm-3 offset-sm-2"><a href="/customercomplain/{{$complain->id}}" class="text-white">View</a></div>
+                                             <div class="col-sm-3 offset-sm-3">Status&nbsp:&nbsp{{$complain->status}}</div>
                                          </div>
                                              
                                      </div>
+
+
+
+
                                  @else
                                  <div class="card-body complainview  mt-1 mt-2 bg-secondary">
-                                         <a href="/customercomplain/{{$complain->id}}" class="text-white"><h3>{{$complain->type}}-{{$complain->product_name }}</h3></a>
+                                         <a href="/customercomplain/{{$complain->id}}" class="text-white"><h5>{{$complain->type}}-{{$complain->product_name }}</h5></a>
                                              
-                                         <h6 class="ml-1" >{{$complain->address }}</h6>
-                                         <h6 class="ml-1" >{{$complain->region}}</h6>
+                                        <!--  <h6 class="ml-1" >{{$complain->address }}</h6>
+                                         <h6 class="ml-1" >{{$complain->region}}</h6> -->
                                          <div class="row mb-0 ">
-                                             <div class="col-sm-3 offset-sm-2"><a href="/customercomplain/{{$complain->id}}" class="text-white">view</a></div>
-                                             <div class="col-sm-3 offset-sm-3">{{$complain->status}}</div>
+                                             <div class="col-sm-3 offset-sm-2"><a href="/customercomplain/{{$complain->id}}" class="text-white">View</a></div>
+                                             <div class="col-sm-3 offset-sm-3">Status&nbsp:&nbsp{{$complain->status}}</div>
                                          </div>
                                         
                                  </div>

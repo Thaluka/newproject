@@ -4,15 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Illuminate\Support\Facades\Storage;
+//use Illuminate\Support\Facades\Storage;
 
-use Illuminate\Support\Facades\File;
+//use Illuminate\Support\Facades\File;
 
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\DB;
 
-use App\Notifications\NewcomplainNotification;
+//use App\Notifications\NewcomplainNotification;
 
 use session;
 
@@ -172,8 +172,7 @@ class ComplainsController extends Controller
         ->first();
 
         $myquery = DB::table('complains')
-        ->join('types', 'complains.type_id', '=', 'types.type_id')
-        ->select('types.type_id')
+        ->select('complains.type_id')
         ->where('complains.id','=',  $id)
         ->pluck('types.type_id')
         ->first();
@@ -201,19 +200,31 @@ class ComplainsController extends Controller
        // return Session::get('mycomplain');
         $complain = complain :: find($id);
         $complain->technician_email=$request->input('technician_email');
-        $complain->status="assign";
+        $complain->status="Assigned";
         $complain->save();
 
         $technician = technician :: find($userEmail);
-        $technician->tstatus = "assign";
+        $technician->tstatus = "Assigned";
         $technician->save();
+
+        // $complains = DB::table('complains')
+        // ->join('types', 'complains.type_id', '=', 'types.type_id')
+        // ->select('complains.*', 'types.type')
+        // ->orderBy('complains.created_at','desc')
+        // ->paginate(4);
+
 
         $complains = DB::table('complains')
         ->join('types', 'complains.type_id', '=', 'types.type_id')
         ->select('complains.*', 'types.type')
+        ->where('complains.status','=','Pending')
         ->orderBy('complains.created_at','desc')
         ->paginate(4);
+
+        
         return view('complains.index')->with('complains',$complains);
+
+
         
     }
 

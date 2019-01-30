@@ -1,0 +1,13 @@
+/* sidebar_dropdown */
+
+  a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 53%;
+    right: 54px;
+    transform: translateY(-50%);
+}

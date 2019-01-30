@@ -58,10 +58,17 @@ class ProductPartsController extends Controller
          $product_part = new part;
          $product_part->type_id=$request->input('type');
          $product_part->part_name=$request->input('part_name');
-         $product_part->part_code=$request->input('part_code');
+        
          $product_part->product_price=$request->input('product_price');
          $product_part->save();
          return redirect('/product_parts')->with ('flash_message_success','Submit successfully');
+		 
+		// $product_part = new part;
+         //$product_part->type_id=$request->input('type');
+         //$product_part->part_name=$request->input('part_name');
+         //$product_part->product_price=$request->input('product_price');
+         //$product_part->save();
+         //return redirect('/product_parts')->with ('flash_message_success','Submit successfully');
     }
 
     /**
@@ -72,7 +79,15 @@ class ProductPartsController extends Controller
      */
     public function show($id)
     {
-        //
+         $part = DB::table('parts')
+            ->join('types', 'parts.type_id', '=', 'types.type_id')
+            ->select('parts.*', 'types.type')
+            ->where('parts.type_id','=', $id)
+            ->first();
+
+         $types= Type::orderBy('created_at','type_id')->get();
+    
+        return view('addproducts.product_parts.show')->with('part',$part)->with('types',$types);
     }
 
     /**
@@ -83,7 +98,8 @@ class ProductPartsController extends Controller
      */
     public function edit($id)
     {
-          $product = DB::table('parts')
+
+          $part = DB::table('parts')
             ->join('types', 'parts.type_id', '=', 'types.type_id')
             ->select('parts.*', 'types.type')
             ->where('parts.id','=',  $id)
@@ -91,7 +107,7 @@ class ProductPartsController extends Controller
 
          $types= Type::orderBy('created_at','type_id')->get();
     
-        return view('addproducts.product_parts.edit')->with('parts',$product)->with('types',$types);
+        return view('addproducts.product_parts.edit')->with('part',$part)->with('types',$types);
     }
 
     /**
@@ -109,13 +125,13 @@ class ProductPartsController extends Controller
          //    'product_code' => 'required'
          // ]);
 
-         $product =  product :: find($id);
+         $product =  part :: find($id);
          $product->type_id=$request->input('type');
          $product->part_name=$request->input('part_name');
-         $product->part_code=$request->input('part_code');
-         $product->part_price=$request->input('part_price');
+        
+         $product->product_price=$request->input('product_price');
          $product->save();
-         return redirect('/products')->with ('flash_message_success','Update successfully');
+         return redirect('/product_parts')->with ('flash_message_success','Update successfully');
     }
 
     /**
@@ -126,6 +142,8 @@ class ProductPartsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $part = part :: find($id);
+        $part->delete();
+        return redirect('/product_parts')->with ('flash_message_success','Delete successfully');
     }
 }

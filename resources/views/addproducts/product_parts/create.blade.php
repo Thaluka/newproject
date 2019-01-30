@@ -53,7 +53,7 @@
                        
                         
                    </div>
-
+<!-- 
                    <div class="form-group row  {{ $errors->has('part_code') ? 'has-error' : '' }} ">
                         <label for="productcode" class="col-form-lable-sm col-sm-3">Part Code</label>
                         <div class="col-sm-8">
@@ -63,7 +63,7 @@
                                         <strong>{{ $errors->first('product_code') }}</strong>
                                     </span>
                             @endif
-                        </div>
+                        </div> -->
                        
                         
                    </div>
@@ -84,7 +84,7 @@
                    
                    <div class="form-group row mt-0 mb-0">
                              <div  class="col-sm-6 offset-sm-3">
-                        	       <button type="submit" class="col-sm-6  btn-primary btn-sm btn-block ">Add</button>
+                        	       <button type="submit" class="col-sm-6 offset-sm-4 btn-primary btn-sm btn-block ">Add</button>
                              </div>
                    </div>
              </form>
